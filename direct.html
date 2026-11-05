@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка и ведение Яндекс Директ — Корвилид</title>
+<meta name="description" content="Настройка и ведение Яндекс Директ для бизнеса: семантика, минус-фразы, поиск, РСЯ, ретаргетинг, цели в Метрике и еженедельный отчёт с ценой заявки. Бесплатный аудит за 48 часов.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <a href="index.html#os">Платформа</a>
+      <a href="direct.html">Яндекс Директ</a>
+      <a href="avito.html">Авито</a>
+      <a href="index.html#prices">Тарифы</a>
+      <a href="#audit">Аудит</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / Яндекс Директ</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Реклама</span>
+        <h1>Яндекс Директ, который приносит <span class="grad">заявки</span>, а не клики</h1>
+        <p class="lead">Собираем полную семантику и минус-фразы, настраиваем поиск, РСЯ и ретаргетинг, ставим цели в Метрике и каждую неделю показываем цену заявки по каждой кампании.</p>
+        <div class="actions"><a class="btn" href="#audit">Бесплатный аудит Директа →</a><a class="btn ghost" href="#calc">Посчитать окупаемость</a></div>
+        <div class="pills"><span>Поиск</span><span>РСЯ</span><span>Ретаргетинг</span><span>Мастер кампаний</span><span>Цели в Метрике</span><span>Маркировка рекламы</span></div>
+      </div>
+      <div class="serp reveal" aria-label="Демонстрация: объявление в поисковой выдаче">
+        <div class="sbar"><span class="q" id="query"></span><span class="go">Найти</span></div>
+        <div class="res">
+          <div class="ad"><small><b>Реклама</b>ваш-сайт.ru › смета</small><h4 id="adTitle">Ремонт кухни под ключ — смета за 1 день</h4><p>Фиксированная цена в договоре. Замер бесплатно. Гарантия на работы.</p><div class="links"><span>Цены</span><span>Наши работы</span><span>Калькулятор</span></div></div>
+          <div class="org"><div class="sk" style="width:55%"></div><div class="sk" style="width:90%"></div><div class="sk" style="width:70%"></div></div>
+          <div class="org"><div class="sk" style="width:45%"></div><div class="sk" style="width:85%"></div><div class="sk" style="width:60%"></div></div>
+        </div>
+        <span class="ripple"></span>
+        <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 10-7 1.5L9.5 21z" fill="#fff" stroke="#0B0E14" stroke-width="1.5"/></svg>
+        <span class="plus">+1 заявка в CRM</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Что входит</span>
+      <h2 class="reveal d1">Полная настройка, а не «поправить ставки»</h2>
+      <p class="sub reveal d2">Каждая кампания строится вокруг одной цели — получить заявку по понятной цене.</p>
+      <div class="incl"><div class="card reveal"><div class="n">01</div><h3>Аудит и анализ ниши</h3><p>Разбираем текущие кампании, сайт и конкурентов в выдаче. Находим, где уходит бюджет.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Семантика и минус-фразы</h3><p>Собираем полный список запросов и отсекаем мусор: «бесплатно», «своими руками», «вакансии».</p></div><div class="card reveal d2"><div class="n">03</div><h3>Объявления</h3><p>Пишем заголовки и тексты под каждую группу запросов, добавляем быстрые ссылки и уточнения.</p></div><div class="card reveal d3"><div class="n">04</div><h3>Поиск, РСЯ, ретаргетинг</h3><p>Запускаем кампании на поиске и в сетях, догоняем тех, кто был на сайте и не оставил заявку.</p></div><div class="card reveal"><div class="n">05</div><h3>Цели в Метрике</h3><p>Настраиваем цели на формы, звонки и мессенджеры, чтобы считать заявки, а не клики.</p></div><div class="card reveal d1"><div class="n">06</div><h3>Стратегии и ставки</h3><p>Подбираем стратегию под цену заявки и регулярно корректируем её по данным.</p></div><div class="card reveal d2"><div class="n">07</div><h3>Маркировка рекламы</h3><p>Проверяем, что объявления маркируются по закону о рекламе.</p></div><div class="card reveal d3"><div class="n">08</div><h3>Еженедельный отчёт</h3><p>Расход, заявки, цена заявки по кампаниям и что улучшаем на следующей неделе.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <span class="kicker reveal">Как мы чистим трафик</span>
+        <h2 class="reveal d1">Каждый запрос — через сортировку</h2>
+        <p class="sub reveal d2" style="margin-bottom:24px">Нецелевые запросы — одна из главных причин слива бюджета. Мы разбираем запросы вручную и с помощью ИИ: целевые уходят в кампании, мусор — в минус-фразы.</p>
+        <div class="reveal" style="display:flex;gap:18px;align-items:center"><svg viewBox="0 0 160 170" aria-hidden="true" style="height:150px;animation:float 4s ease-in-out infinite"><ellipse cx="80" cy="162" rx="40" ry="6" fill="#000" opacity=".4"/><line x1="80" y1="38" x2="80" y2="18" stroke="#8E96A6" stroke-width="4"/><polygon class="spark" points="84,2 72,20 80,20 76,32 90,12 82,12" fill="#FFD54A"/><rect x="40" y="38" width="80" height="62" rx="22" fill="#C9CED6"/><rect x="50" y="50" width="60" height="36" rx="14" fill="#141821"/><rect class="blinker" x="60" y="60" width="12" height="14" rx="5" fill="#FFD54A"/><rect class="blinker" x="88" y="60" width="12" height="14" rx="5" fill="#FFD54A"/><rect x="50" y="104" width="60" height="46" rx="16" fill="#3A4152"/><circle cx="80" cy="126" r="11" fill="#FFD54A" opacity=".9"/><path d="M77 119 l-4 9 h6 l-3 8 9-12 h-6 l3-5z" fill="#141821"/><rect class="wing" x="26" y="108" width="20" height="10" rx="5" fill="#8E96A6"/><rect x="114" y="108" width="20" height="10" rx="5" fill="#8E96A6"/><rect x="58" y="150" width="14" height="10" rx="4" fill="#8E96A6"/><rect x="88" y="150" width="14" height="10" rx="4" fill="#8E96A6"/></svg><p style="color:var(--muted);font-size:15px;max-width:300px"><b style="color:#FFD54A">Искра</b> — наш ИИ-помощник по рекламе. Сортирует тысячи фраз, а специалист проверяет и утверждает результат.</p></div>
+      </div>
+      <div class="sorter reveal" id="sorter" aria-label="Демонстрация сортировки поисковых запросов">
+        <span class="funnelTop">поисковые запросы</span>
+        <div class="bin l"><h5>Целевые <span id="cntL">0</span></h5><div class="list" id="listL"></div></div>
+        <div class="bin r"><h5>Минус-слова <span id="cntR">0</span></h5><div class="list" id="listR"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calc">
+    <div class="wrap">
+      <span class="kicker reveal">Калькулятор окупаемости</span>
+      <h2 class="reveal d1">Посчитайте на своих цифрах</h2>
+      <p class="sub reveal d2">Подставьте свои данные: бюджет, ожидаемую цену заявки, конверсию в сделку и средний чек — и посмотрите, окупается ли реклама.</p>
+      <div id="roi" class="reveal">
+        <div>
+          <div class="sl"><label><span>Рекламный бюджет в месяц</span><b id="rbv"></b></label><input type="range" id="rb" min="20000" max="500000" step="5000" value="100000"></div>
+          <div class="sl"><label><span>Цена одной заявки</span><b id="rcv"></b></label><input type="range" id="rc" min="200" max="5000" step="50" value="900"></div>
+          <div class="sl"><label><span>Сколько заявок становятся сделками</span><b id="rvv"></b></label><input type="range" id="rv" min="2" max="50" step="1" value="20"></div>
+          <div class="sl"><label><span>Средний чек сделки</span><b id="rkv"></b></label><input type="range" id="rk" min="10000" max="1000000" step="5000" value="150000"></div>
+        </div>
+        <div class="outs">
+          <div><small>Заявок в месяц</small><b id="o1">0</b></div>
+          <div><small>Сделок в месяц</small><b id="o2">0</b></div>
+          <div class="wide"><small>Выручка от рекламы</small><b id="o3">0 ₽</b></div>
+          <div class="wide"><small>Стоимость одной сделки</small><b id="o4">—</b></div>
+          <p class="disclaim">Это расчёт на ваших собственных цифрах, а не обещание результата. Реальную цену заявки в вашей нише покажем после аудита.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Рекламный бюджет вы оплачиваете площадке напрямую — он не смешивается с оплатой наших услуг. Точную смету фиксируем после бесплатного аудита.</p>
+      <div class="pricebox">
+        <div class="plan reveal"><h3>НАСТРОЙКА</h3><div class="price">от 20 000 ₽</div><div class="setup">разово</div><ul><li>Аудит текущих кампаний</li><li>Семантика и минус-фразы</li><li>Поиск + РСЯ + ретаргетинг</li><li>Цели в Яндекс Метрике</li><li>Срок запуска 5–10 рабочих дней</li></ul><a class="btn ghost" href="#audit">Начать с аудита</a></div>
+        <div class="plan best reveal d1"><span class="badge">Основное</span><h3>ВЕДЕНИЕ</h3><div class="price">от 30 000 ₽<small> / мес</small></div><div class="setup">ежемесячно</div><ul><li>Ежедневный контроль кампаний</li><li>Чистка запросов и тест объявлений</li><li>Корректировка ставок и стратегий</li><li>Отчёт с ценой заявки каждую неделю</li><li>Созвон и план улучшений раз в месяц</li></ul><a class="btn" href="#audit">Подключить ведение</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Вы гарантируете количество заявок?</button><div class="faq-a"><div><p>Нет, и честный подрядчик не гарантирует: результат зависит от ниши, сайта, цен и бюджета. Мы гарантируем объём работ по договору, прозрачность и еженедельный отчёт с ценой каждой заявки.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Какой нужен рекламный бюджет?</button><div class="faq-a"><div><p>Для локальных услуг рекомендуем от 50 000 ₽ в месяц на рекламу — с меньшим бюджетом слишком мало данных для оптимизации. Точную сумму назовём после аудита ниши и конкурентов.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Кому принадлежит рекламный кабинет?</button><div class="faq-a"><div><p>Вам. Кабинет и счётчик Метрики оформляются на вас, мы работаем по доступу. Если решите прекратить сотрудничество, всё остаётся у вас.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">А как же маркировка рекламы?</button><div class="faq-a"><div><p>В Яндекс Директе маркировка встроена: данные передаются в оператор рекламных данных автоматически. Мы проверяем, что в кабинете указаны корректные данные рекламодателя.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Сколько времени занимает запуск?</button><div class="faq-a"><div><p>Обычно 5–10 рабочих дней: аудит, сбор семантики, тексты, настройка целей и запуск. Первые выводы по цене заявки — через 2–4 недели работы кампаний.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">У меня уже есть кампании. Начнёте с нуля?</button><div class="faq-a"><div><p>Не обязательно. Сначала делаем бесплатный аудит: если структура рабочая, дорабатываем её; если нет — перестраиваем.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Бесплатный аудит вашего Директа</h2>
+        <p class="sub" style="margin-bottom:0">Пришлите доступ на просмотр кабинета или просто ссылку на сайт — за 48 часов в рабочие дни покажем, где теряются деньги и заявки.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="Яндекс Директ">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Директ</a> · <a href="avito.html">Авито</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM;
+/* набор запросов в строке поиска */
+const qs = [['ремонт кухни под ключ','Ремонт кухни под ключ — смета за 1 день'],['натяжные потолки цена за м2','Натяжные потолки — монтаж за 1 день'],['окна пвх с установкой','Окна ПВХ с установкой — замер бесплатно'],['баня под ключ проекты','Бани под ключ — проект и смета бесплатно']];
+const qEl = document.getElementById('query'), tEl = document.getElementById('adTitle');
+let qi = 0;
+function typeQ(){ const [q, t] = qs[qi++ % qs.length]; let i = 0; qEl.textContent = '';
+  const iv = setInterval(() => { qEl.textContent = q.slice(0, ++i); if (i >= q.length){ clearInterval(iv); tEl.textContent = t; setTimeout(typeQ, 3200); } }, RM ? 0 : 55); }
+typeQ();
+/* сортировщик */
+const words = [['ремонт кухни под ключ',1],['ремонт кухни своими руками',0],['ремонт кухни цена',1],['ремонт кухни бесплатно',0],['смета на ремонт кухни',1],['ремонт кухни вакансии',0],['заказать ремонт кухни',1],['ремонт кухни фото идеи',0],['ремонт кухни екатеринбург',1],['ремонт кухни игра',0],['ремонт кухни под ключ с материалами',1],['скачать дизайн кухни',0]];
+const box = document.getElementById('sorter'); let wi = 0, cl = 0, cr = 0;
+function drop(){ const [w, good] = words[wi++ % words.length]; const c = document.createElement('div'); c.className = 'chip'; c.textContent = w; box.append(c);
+  const W = box.clientWidth;
+  setTimeout(() => { c.style.transform = `translate(calc(-50% + ${good ? -W*.24 : W*.24}px), 210px) scale(.7)`; c.style.opacity = '.0'; }, 700);
+  setTimeout(() => { c.remove(); const list = document.getElementById(good ? 'listL' : 'listR'); const s = document.createElement('span'); s.textContent = w; list.prepend(s);
+    if (list.children.length > 6) list.lastChild.remove();
+    if (good) document.getElementById('cntL').textContent = ++cl; else document.getElementById('cntR').textContent = ++cr; }, 1800); }
+let started = false;
+new IntersectionObserver(es => { if (es[0].isIntersecting && !started){ started = true; drop(); if (!RM) setInterval(drop, 1500); } }, {threshold:.3}).observe(box);
+})();
+</script>
+</body>
+</html>
