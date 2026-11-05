@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Продвижение в Яндекс Картах и 2ГИС, отзывы — Корвилид</title>
+<meta name="description" content="Оформление и ведение карточек в Яндекс Картах и 2ГИС, сбор и ответы на отзывы, приоритетное размещение, справочники и управление репутацией.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+<link rel="stylesheet" href="assets/menu.css">
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <div class="mm"><button type="button">Услуги <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m6 9 6 6 6-6" /></svg></button><div class="mpanel"><div class="in2"><a href="direct.html" style="--c:#FFCC00"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg></i><span><b>Яндекс Реклама</b><small>Все форматы рекламы Яндекса: от поиска до видео и Карт</small></span></a><a href="avito.html" style="--c:#00AAFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a4 4 0 0 1-8 0" /><path d="M3.103 6.034h17.794" /><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" /></svg></i><span><b>Авито</b><small>Профиль, объявления, продвижение, автозагрузка и найм</small></span></a><a href="vk.html" style="--c:#2F6BFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></i><span><b>VK Реклама</b><small>Таргет, лид-формы, ретаргетинг и посевы во ВКонтакте</small></span></a><a href="smm.html" style="--c:#A855F7"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></i><span><b>Соцсети и контент</b><small>Ведение VK, Telegram, Дзен, OK, клипы и контент-план</small></span></a><a href="maps.html" style="--c:#FF5C5C"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></i><span><b>Карты и отзывы</b><small>Яндекс Карты, 2ГИС, справочники, отзывы и репутация</small></span></a><a href="seo.html" style="--c:#33D69F"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></i><span><b>SEO</b><small>Бесплатный трафик из поиска Яндекса</small></span></a><a href="marketplaces.html" style="--c:#CB11AB"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><polyline points="3.29 7 12 12 20.71 7" /><path d="m7.5 4.27 9 5.15" /></svg></i><span><b>Маркетплейсы</b><small>Ozon, Wildberries, Яндекс Маркет: карточки, реклама, аналитика</small></span></a><a href="sites.html" style="--c:#3DE0FF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg></i><span><b>Сайты</b><small>Квизы, лендинги, корпоративные сайты и магазины</small></span></a><a href="apps.html" style="--c:#22D3EE"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg></i><span><b>Приложения и боты</b><small>Мобильные и веб-приложения, боты, мини-приложения, личные кабинеты</small></span></a><a href="crm.html" style="--c:#33D69F"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></svg></i><span><b>CRM и автоматизация</b><small>CRM, интеграции, ИИ-ассистенты, онлайн-запись</small></span></a><a href="services.html#analytics" style="--c:#6E9BFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 16v5" /><path d="M16 14.639V21" /><path d="M20 10.656V21" /><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" /><path d="M4 18.463V21" /><path d="M8 14.656V21" /></svg></i><span><b>Аналитика</b><small>Метрика, коллтрекинг, сквозная аналитика, дашборды</small></span></a><a href="services.html#brand" style="--c:#FFB547"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg></i><span><b>Бренд и дизайн</b><small>Нейминг, логотип, фирстиль, презентации, видео</small></span></a><a href="consulting.html" style="--c:#FFB547"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg></i><span><b>Продажи и консалтинг</b><small>Аудит, стратегия, отдел продаж, скрипты, обучение</small></span></a><a href="services.html#crmm" style="--c:#F472B6"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg></i><span><b>Рассылки и удержание</b><small>Рассылки, программы лояльности, работа с базой</small></span></a><a href="services.html#hr" style="--c:#34D399"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></i><span><b>Найм сотрудников</b><small>Вакансии и реклама для найма: Авито Работа, hh.ru, VK</small></span></a><a href="services.html#media" style="--c:#FB923C"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16.247 7.761a6 6 0 0 1 0 8.478" /><path d="M19.075 4.933a10 10 0 0 1 0 14.134" /><path d="M4.925 19.067a10 10 0 0 1 0-14.134" /><path d="M7.753 16.239a6 6 0 0 1 0-8.478" /><circle cx="12" cy="12" r="2" /></svg></i><span><b>Блогеры и медиа</b><small>Блогеры, посевы, Telegram Ads, публикации в СМИ</small></span></a><a class="all" href="services.html">Все 111 услуг и подбор по задаче →</a></div></div></div>
+      <a href="services.html#tasks">Решения</a>
+      <a href="index.html#os">Платформа</a>
+      <a href="index.html#prices">Тарифы</a>
+      <a href="index.html#how">Как работаем</a>
+      <a href="#audit">Аудит</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / Карты и отзывы</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Гео</span>
+        <h1>Клиенты рядом с вами <span class="grad">уже ищут на Картах</span></h1>
+        <p class="lead">Оформляем карточки в Яндекс Картах и 2ГИС, собираем отзывы и отвечаем на них, подключаем приоритетное размещение. Больше звонков, маршрутов и визитов — без сайта и сложной рекламы.</p>
+        <div class="actions"><a class="btn" href="#audit">Бесплатный аудит карточки →</a><a class="btn ghost" href="#rate">Калькулятор рейтинга</a></div>
+        <div class="pills"><span>Яндекс Бизнес</span><span>2ГИС</span><span>Отзывы</span><span>Приоритет на Картах</span><span>Справочники</span><span>Репутация</span></div>
+      </div>
+      <div class="mapph reveal" aria-label="Демонстрация: карточка компании на карте">
+        <svg class="mp" viewBox="0 0 380 600" preserveAspectRatio="none"><rect width="380" height="600" fill="#151A24"/><g stroke="#232A38" stroke-width="14" fill="none"><path d="M-10 160 H400"/><path d="M-10 380 H400"/><path d="M120 -10 V610"/><path d="M290 -10 V610"/><path d="M-10 520 L400 250"/></g><g fill="#1A2A22"><rect x="140" y="190" width="130" height="80" rx="10"/><rect x="20" y="400" width="80" height="90" rx="10"/></g><path class="route" d="M60 560 L120 520 L120 380 L205 380 L205 300" stroke="#2F6BFF" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        <span class="pin" style="left:22%;top:22%;animation-delay:0.1s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><span class="pin" style="left:70%;top:18%;animation-delay:0.2s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><span class="pin" style="left:80%;top:44%;animation-delay:0.3s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><span class="pin" style="left:18%;top:52%;animation-delay:0.25s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><span class="pin" style="left:58%;top:62%;animation-delay:0.35s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><span class="pin us" style="left:54%;top:50%;animation-delay:.5s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span>
+        <div class="mcard"><b>Ваша компания</b><div class="rt">★★★★★ 4,9 <small>· отзывы клиентов</small></div><div style="font-size:13px;color:#666">Открыто до 21:00 · 600 м от вас</div><div class="bt"><span>Позвонить</span><span>Маршрут</span><span>Записаться</span></div><div class="ct"><span>Звонков сегодня <b id="mc1">0</b></span><span>Маршрутов <b id="mc2">0</b></span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="formats">
+    <div class="wrap">
+      <span class="kicker reveal">Что делаем</span>
+      <h2 class="reveal d1">Все работы с Картами и отзывами</h2>
+      <p class="sub reveal d2">Оформление, ведение и реклама на картах, плюс репутация в поиске по названию компании.</p>
+      <div class="fmtg svcg reveal"><div class="sv" data-g="maps"><b>Карточка в Яндекс Бизнесе</b><p>Заполнение, фото, услуги и цены, кнопки записи и звонка.</p><div class="pr"><span>от 7 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Карточка в 2ГИС</b><p>Полное оформление, фото, рубрики, рекламные возможности 2ГИС.</p><div class="pr"><span>от 5 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Справочники и каталоги</b><p>Регистрация в Zoon, Flamp и отраслевых каталогах с едиными данными.</p><div class="pr"><span>от 5 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Сбор отзывов</b><p>Процесс и инструменты, чтобы довольные клиенты оставляли отзывы.</p><div class="pr"><span>от 5 000 ₽/мес</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Ответы на отзывы</b><p>Вежливые ответы на все отзывы, отработка негатива.</p><div class="pr"><span>от 5 000 ₽/мес</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Управление репутацией (SERM)</b><p>Что видят клиенты, когда ищут название вашей компании.</p><div class="pr"><span>от 20 000 ₽/мес</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Филиалы и сети</b><p>Единое управление карточками и отзывами для нескольких точек.</p><div class="pr"><span>по запросу</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="maps"><b>Ведение Карт</b><p>Посты, акции, фото, обновление цен, ответы и отчёт по звонкам и маршрутам.</p><div class="pr"><span>от 10 000 ₽/мес</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div></div>
+      <p style="color:var(--muted);font-size:13px;margin-top:14px">Цены — ориентир «от». Нажмите «+», чтобы добавить услугу в заявку. <a href="services.html" style="color:var(--accent2)">Все 111 услуг →</a></p>
+    </div>
+  </section>
+
+  <section id="rate">
+    <div class="wrap">
+      <span class="kicker reveal">Калькулятор рейтинга</span>
+      <h2 class="reveal d1">Сколько отзывов нужно до цели?</h2>
+      <p class="sub reveal d2">Рейтинг — первое, что видит клиент на Картах. Посчитайте, сколько новых отзывов на 5★ нужно, чтобы выйти на желаемую оценку.</p>
+      <div class="rcalc reveal">
+        <div id="lk">
+          <div class="sl"><label><span>Текущий рейтинг</span><b id="r1v"></b></label><input type="range" id="r1" min="3" max="4.9" step="0.1" value="4.2"></div>
+          <div class="sl"><label><span>Отзывов сейчас</span><b id="r2v"></b></label><input type="range" id="r2" min="5" max="500" step="5" value="60"></div>
+          <div class="sl"><label><span>Цель</span><b id="r3v"></b></label><input type="range" id="r3" min="4" max="4.9" step="0.1" value="4.7"></div>
+        </div>
+        <div><small style="color:var(--muted)">Нужно новых отзывов на 5★</small><div class="big" id="rN">0</div><div class="stars5" id="st5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg></div><p style="color:var(--muted);font-size:14px" id="rT"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Цены — ориентир. Точную смету с объёмом работ и сроками фиксируем в договоре после бесплатного аудита.</p>
+      <div class="plans3"><div class="plan best reveal"><span class="badge">Быстрый старт</span><h3>СТАРТ</h3><div class="price">от 12 000 ₽</div><div class="setup">разово</div><ul><li>Карточка в Яндекс Бизнесе</li><li>Карточка в 2ГИС</li><li>Фото, услуги, цены</li><li>Кнопки звонка и записи</li></ul><a class="btn" href="#audit">Обсудить</a></div><div class="plan reveal d1"><h3>ВЕДЕНИЕ</h3><div class="price">от 10 000 ₽</div><div class="setup">в месяц</div><ul><li>Ответы на все отзывы</li><li>Посты и акции в карточках</li><li>Сбор новых отзывов</li><li>Отчёт: звонки, маршруты, визиты</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div><div class="plan reveal d2"><h3>РЕПУТАЦИЯ</h3><div class="price">от 20 000 ₽</div><div class="setup">в месяц</div><ul><li>Карты и справочники</li><li>Отработка негатива</li><li>Выдача по названию компании</li><li>Мониторинг упоминаний</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Вы пишете фейковые отзывы?</button><div class="faq-a"><div><p>Нет. Накрутка отзывов нарушает правила площадок, карточку могут заблокировать или понизить. Мы выстраиваем честный сбор отзывов от реальных клиентов и отвечаем на все отзывы.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Можно ли удалить плохой отзыв?</button><div class="faq-a"><div><p>Только если он нарушает правила площадки — например, оскорбления или отзыв не о вас. Мы готовим жалобу. В остальных случаях правильный ответ на негатив работает лучше удаления.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Что такое приоритетное размещение?</button><div class="faq-a"><div><p>Платная услуга Яндекса: карточка выделяется на карте, показывается выше конкурентов и без их рекламы. Оплачивается Яндексу напрямую.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Нужен ли сайт для Карт?</button><div class="faq-a"><div><p>Нет — карточка работает и без сайта: звонки, маршруты, запись. Но с сайтом клиенты доверяют больше.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Бесплатный аудит карточки</h2>
+        <p class="sub" style="margin-bottom:0">Пришлите название компании и город — покажем, что мешает карточке получать звонки, и как обойти конкурентов рядом.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="Яндекс Карты и отзывы">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+<div class="basket" id="basket"><span><b id="bN">0 услуг</b><small id="bL"></small></span><a class="btn" href="#audit">Обсудить →</a></div></main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Яндекс Реклама</a> · <a href="avito.html">Авито</a> · <a href="vk.html">VK Реклама</a> · <a href="smm.html">Соцсети и контент</a> · <a href="maps.html">Карты и отзывы</a> · <a href="seo.html">SEO</a> · <a href="marketplaces.html">Маркетплейсы</a> · <a href="sites.html">Сайты</a> · <a href="apps.html">Приложения и боты</a> · <a href="crm.html">CRM и автоматизация</a> · <a href="consulting.html">Продажи и консалтинг</a> · <a href="services.html">Все услуги</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM, nf = KV.nf;
+
+/* корзина услуг */
+(() => { const picked = new Set(), bk = document.getElementById('basket'); if (!bk) return;
+const ta = document.querySelector('#leadForm textarea[name=comment]');
+const plural = n => n % 10 === 1 && n % 100 !== 11 ? 'услуга' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'услуги' : 'услуг');
+function upd(){ document.getElementById('bN').textContent = 'Выбрано: ' + picked.size + ' ' + plural(picked.size); document.getElementById('bL').textContent = [...picked].join(', ');
+  bk.classList.toggle('on', picked.size > 0); if (ta) ta.value = picked.size ? 'Интересуют услуги: ' + [...picked].join('; ') : ''; }
+document.querySelectorAll('.sv .add').forEach(b => b.addEventListener('click', () => { const sv = b.closest('.sv'), n = sv.querySelector('b').textContent;
+  if (picked.has(n)) { picked.delete(n); sv.classList.remove('picked'); } else { picked.add(n); sv.classList.add('picked'); } upd(); }));
+})();
+
+/* счётчики в карточке */
+let a = 0, b = 0; setInterval(() => { if (Math.random() > .4) document.getElementById('mc1').textContent = ++a; if (Math.random() > .5) document.getElementById('mc2').textContent = ++b; }, 1300);
+/* калькулятор рейтинга */
+const el = id => document.getElementById(id), stars = [...document.querySelectorAll('#st5 svg')];
+function rc(){ const R = +el('r1').value, N = +el('r2').value; let T = +el('r3').value;
+  [['r1', R.toFixed(1)], ['r2', N], ['r3', T.toFixed(1)]].forEach(([i, v]) => { el(i+'v').textContent = v; const r = el(i); r.style.setProperty('--p', (r.value - r.min) / (r.max - r.min) * 100 + '%'); });
+  const n = T <= R ? 0 : Math.ceil(N * (T - R) / (5 - T)); el('rN').textContent = nf(n);
+  stars.forEach((s, i) => s.classList.toggle('f', i < Math.round(T)));
+  el('rT').textContent = n ? `Если собирать 5 отзывов в неделю — это примерно ${Math.ceil(n/5)} нед. Отзывы только от реальных клиентов.` : 'Вы уже на цели — теперь важно её удерживать и отвечать на каждый отзыв.'; }
+['r1','r2','r3'].forEach(i => el(i).addEventListener('input', rc)); rc();
+
+})();
+</script>
+<script src="assets/menu.js"></script>
+</body>
+</html>

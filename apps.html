@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разработка приложений, ботов и мини-приложений — Корвилид</title>
+<meta name="description" content="Мобильные приложения iOS и Android, веб-приложения и личные кабинеты, Telegram-боты, мини-приложения в Telegram и MAX, онлайн-запись и программы лояльности для бизнеса.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+<link rel="stylesheet" href="assets/menu.css">
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <div class="mm"><button type="button">Услуги <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m6 9 6 6 6-6" /></svg></button><div class="mpanel"><div class="in2"><a href="direct.html" style="--c:#FFCC00"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg></i><span><b>Яндекс Реклама</b><small>Все форматы рекламы Яндекса: от поиска до видео и Карт</small></span></a><a href="avito.html" style="--c:#00AAFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a4 4 0 0 1-8 0" /><path d="M3.103 6.034h17.794" /><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" /></svg></i><span><b>Авито</b><small>Профиль, объявления, продвижение, автозагрузка и найм</small></span></a><a href="vk.html" style="--c:#2F6BFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" /><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" /><path d="M8 6v8" /></svg></i><span><b>VK Реклама</b><small>Таргет, лид-формы, ретаргетинг и посевы во ВКонтакте</small></span></a><a href="smm.html" style="--c:#A855F7"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></svg></i><span><b>Соцсети и контент</b><small>Ведение VK, Telegram, Дзен, OK, клипы и контент-план</small></span></a><a href="maps.html" style="--c:#FF5C5C"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></i><span><b>Карты и отзывы</b><small>Яндекс Карты, 2ГИС, справочники, отзывы и репутация</small></span></a><a href="seo.html" style="--c:#33D69F"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg></i><span><b>SEO</b><small>Бесплатный трафик из поиска Яндекса</small></span></a><a href="marketplaces.html" style="--c:#CB11AB"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><polyline points="3.29 7 12 12 20.71 7" /><path d="m7.5 4.27 9 5.15" /></svg></i><span><b>Маркетплейсы</b><small>Ozon, Wildberries, Яндекс Маркет: карточки, реклама, аналитика</small></span></a><a href="sites.html" style="--c:#3DE0FF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="3" rx="2" /><line x1="8" x2="16" y1="21" y2="21" /><line x1="12" x2="12" y1="17" y2="21" /></svg></i><span><b>Сайты</b><small>Квизы, лендинги, корпоративные сайты и магазины</small></span></a><a href="apps.html" style="--c:#22D3EE"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg></i><span><b>Приложения и боты</b><small>Мобильные и веб-приложения, боты, мини-приложения, личные кабинеты</small></span></a><a href="crm.html" style="--c:#33D69F"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></svg></i><span><b>CRM и автоматизация</b><small>CRM, интеграции, ИИ-ассистенты, онлайн-запись</small></span></a><a href="services.html#analytics" style="--c:#6E9BFF"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 16v5" /><path d="M16 14.639V21" /><path d="M20 10.656V21" /><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" /><path d="M4 18.463V21" /><path d="M8 14.656V21" /></svg></i><span><b>Аналитика</b><small>Метрика, коллтрекинг, сквозная аналитика, дашборды</small></span></a><a href="services.html#brand" style="--c:#FFB547"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></svg></i><span><b>Бренд и дизайн</b><small>Нейминг, логотип, фирстиль, презентации, видео</small></span></a><a href="consulting.html" style="--c:#FFB547"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg></i><span><b>Продажи и консалтинг</b><small>Аудит, стратегия, отдел продаж, скрипты, обучение</small></span></a><a href="services.html#crmm" style="--c:#F472B6"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg></i><span><b>Рассылки и удержание</b><small>Рассылки, программы лояльности, работа с базой</small></span></a><a href="services.html#hr" style="--c:#34D399"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg></i><span><b>Найм сотрудников</b><small>Вакансии и реклама для найма: Авито Работа, hh.ru, VK</small></span></a><a href="services.html#media" style="--c:#FB923C"><i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16.247 7.761a6 6 0 0 1 0 8.478" /><path d="M19.075 4.933a10 10 0 0 1 0 14.134" /><path d="M4.925 19.067a10 10 0 0 1 0-14.134" /><path d="M7.753 16.239a6 6 0 0 1 0-8.478" /><circle cx="12" cy="12" r="2" /></svg></i><span><b>Блогеры и медиа</b><small>Блогеры, посевы, Telegram Ads, публикации в СМИ</small></span></a><a class="all" href="services.html">Все 111 услуг и подбор по задаче →</a></div></div></div>
+      <a href="services.html#tasks">Решения</a>
+      <a href="index.html#os">Платформа</a>
+      <a href="index.html#prices">Тарифы</a>
+      <a href="index.html#how">Как работаем</a>
+      <a href="#audit">Аудит</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / Приложения и боты</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Тех</span>
+        <h1>Приложения и боты <span class="grad">под задачу вашего бизнеса</span></h1>
+        <p class="lead">Запись, заказы, бонусы, личные кабинеты, внутренние сервисы для команды. Делаем мобильные и веб-приложения, мини-приложения в Telegram и MAX и ботов — и связываем их с CRM и рекламой.</p>
+        <div class="actions"><a class="btn" href="#audit">Обсудить приложение →</a><a class="btn ghost" href="#build">Собрать приложение</a></div>
+        <div class="pills"><span>iOS и Android</span><span>Веб-приложения</span><span>Telegram и MAX</span><span>Боты</span><span>Лояльность</span><span>Интеграции</span></div>
+      </div>
+      <div class="appph reveal" aria-label="Демонстрация: запись в приложении">
+        <div class="push" id="push"><i></i><div><b>Вы записаны ✓</b><small id="pushT">Завтра в 15:00 · напомним за 2 часа</small></div></div>
+        <div class="ah"><small>Добрый день, Анна</small><b>Записаться к мастеру</b></div>
+        <div class="bd2">
+          <div class="days"><span>Пн<br>10</span><span class="on">Вт<br>11</span><span>Ср<br>12</span><span>Чт<br>13</span><span>Пт<br>14</span></div>
+          <div class="slots" id="slots"><span>10:00</span><span class="x">11:00</span><span>12:30</span><span class="x">14:00</span><span>15:00</span><span>16:30</span><span>17:00</span><span class="x">18:00</span><span>19:30</span></div>
+          <div class="cta2" id="cta2">Записаться</div>
+          <div class="bon"><span>Ваши бонусы</span><b id="bon">1 250</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="formats">
+    <div class="wrap">
+      <span class="kicker reveal">Что делаем</span>
+      <h2 class="reveal d1">Приложения под любые задачи</h2>
+      <p class="sub reveal d2">От простого бота до полноценного продукта с личными кабинетами и админкой.</p>
+      <div class="fmtg svcg reveal"><div class="sv" data-g="apps"><b>Мобильное приложение</b><p>iOS и Android: запись, заказы, бонусы, push-уведомления.</p><div class="pr"><span>от 350 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Веб-приложение и личный кабинет</b><p>Кабинет клиента, партнёра или сотрудника в браузере.</p><div class="pr"><span>от 150 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Telegram-бот</b><p>Запись, заказы, ответы на вопросы, приём заявок.</p><div class="pr"><span>от 30 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Мини-приложение в Telegram и MAX</b><p>Каталог, запись, оплата — прямо в мессенджере, без установки.</p><div class="pr"><span>от 90 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Онлайн-запись и бронирование</b><p>Расписание мастеров, напоминания, предоплата.</p><div class="pr"><span>от 40 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Программа лояльности</b><p>Бонусы, карты клиента в смартфоне, реферальная программа.</p><div class="pr"><span>от 60 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>Внутренние сервисы для команды</b><p>Сметы, учёт заказов, задачи, отчёты — под ваши процессы.</p><div class="pr"><span>от 120 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div><div class="sv" data-g="apps"><b>MVP для стартапа</b><p>Первая версия продукта за 4–8 недель для проверки идеи.</p><div class="pr"><span>от 250 000 ₽</span></div><button class="add" title="Добавить в заявку" aria-label="Добавить в заявку">+</button></div></div>
+      <p style="color:var(--muted);font-size:13px;margin-top:14px">Цены — ориентир «от». Нажмите «+», чтобы добавить услугу в заявку. <a href="services.html" style="color:var(--accent2)">Все 111 услуг →</a></p>
+    </div>
+  </section>
+
+  <section id="build">
+    <div class="wrap">
+      <span class="kicker reveal">Конструктор</span>
+      <h2 class="reveal d1">Соберите своё приложение</h2>
+      <p class="sub reveal d2">Выберите тип и нужные функции — покажем ориентир по бюджету и срокам. Точную смету составим после обсуждения задачи.</p>
+      <div class="abuild reveal">
+        <div class="feats" id="feats"><button data-p="60000" data-w="2" class="on"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="m9 15 2 2 4-4" /></svg>Онлайн-запись</button><button data-p="90000" data-w="3" class="on"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 10a4 4 0 0 1-8 0" /><path d="M3.103 6.034h17.794" /><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" /></svg>Каталог и заказы</button><button data-p="40000" data-w="1" class="on"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /><path d="M6 14h2" /></svg>Онлайн-оплата</button><button data-p="60000" data-w="2" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 7v14" /><path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /><path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" /><rect x="3" y="7" width="18" height="4" rx="1" /></svg>Бонусы и лояльность</button><button data-p="25000" data-w="1" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10.268 21a2 2 0 0 0 3.464 0" /><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /></svg>Push-уведомления</button><button data-p="40000" data-w="1" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>Чат с менеджером</button><button data-p="50000" data-w="2" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>Личный кабинет</button><button data-p="80000" data-w="2" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></svg>ИИ-ассистент</button><button data-p="60000" data-w="2" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></svg>Карта и доставка</button><button data-p="70000" data-w="2" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 16v5" /><path d="M16 14.639V21" /><path d="M20 10.656V21" /><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" /><path d="M4 18.463V21" /><path d="M8 14.656V21" /></svg>Админка и отчёты</button></div>
+        <div class="abres">
+          <div class="typ" id="typ"><button data-k="0.45" data-b="30000">Telegram-бот</button><button class="on" data-k="0.75" data-b="60000">Мини-приложение</button><button data-k="1" data-b="120000">Веб-приложение</button><button data-k="1.6" data-b="200000">iOS + Android</button></div>
+          <small style="color:var(--muted)">Ориентир бюджета</small><div class="big" id="abP">—</div><div class="wk" id="abW"></div>
+          <a class="btn" href="#audit" id="abB">Обсудить проект →</a>
+          <p style="color:var(--muted);font-size:12px;margin-top:12px">Демонстрационный расчёт: реальная стоимость зависит от дизайна, интеграций и сложности логики.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Как работаем</span>
+      <h2 class="reveal d1">От идеи до запуска</h2>
+      <p class="sub reveal d2">Начинаем с маленькой рабочей версии, чтобы вы быстрее увидели результат.</p>
+      <div class="incl"><div class="card reveal"><div class="n">01</div><h3>Брифинг</h3><p>Разбираем задачу, пользователей и то, как приложение будет зарабатывать или экономить.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Прототип</h3><p>Кликабельный макет экранов — согласуем до начала разработки.</p></div><div class="card reveal d2"><div class="n">03</div><h3>Дизайн</h3><p>Интерфейс в вашем фирменном стиле, удобный на любом экране.</p></div><div class="card reveal d3"><div class="n">04</div><h3>Разработка</h3><p>Спринты по 2 недели с демонстрацией результата.</p></div><div class="card reveal"><div class="n">05</div><h3>Интеграции</h3><p>CRM, оплата, 1С, телефония, мессенджеры, Метрика.</p></div><div class="card reveal d1"><div class="n">06</div><h3>Тестирование</h3><p>Проверяем на реальных устройствах и сценариях.</p></div><div class="card reveal d2"><div class="n">07</div><h3>Публикация</h3><p>App Store, RuStore, Google Play или запуск в Telegram/MAX.</p></div><div class="card reveal d3"><div class="n">08</div><h3>Поддержка</h3><p>Исправления, развитие и аналитика после запуска.</p></div></div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Цены — ориентир. Точную смету с объёмом работ и сроками фиксируем в договоре после бесплатного аудита.</p>
+      <div class="plans3"><div class="plan best reveal"><span class="badge">Быстрый старт</span><h3>БОТ</h3><div class="price">от 30 000 ₽</div><div class="setup">от 1–2 недель</div><ul><li>Telegram-бот</li><li>Запись, заявки, FAQ</li><li>Передача в CRM</li><li>Рассылки</li></ul><a class="btn" href="#audit">Обсудить</a></div><div class="plan reveal d1"><h3>МИНИ-ПРИЛОЖЕНИЕ</h3><div class="price">от 90 000 ₽</div><div class="setup">от 3–5 недель</div><ul><li>Telegram или MAX</li><li>Каталог, запись, оплата</li><li>Без установки из стора</li><li>Админка</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div><div class="plan reveal d2"><h3>ПРИЛОЖЕНИЕ</h3><div class="price">от 350 000 ₽</div><div class="setup">от 2–3 месяцев</div><ul><li>iOS и Android или веб</li><li>Личные кабинеты</li><li>Push и лояльность</li><li>Публикация в сторах</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Что выбрать: бот, мини-приложение или полноценное приложение?</button><div class="faq-a"><div><p>Бот — для простых сценариев: заявки, запись, ответы. Мини-приложение — для каталога и оплаты без установки. Полноценное приложение — когда клиенты пользуются сервисом регулярно. Подскажем на созвоне.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Кому принадлежит код?</button><div class="faq-a"><div><p>Вам: передаём исходный код и доступы по договору.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Можно ли начать с малого?</button><div class="faq-a"><div><p>Да, и мы это рекомендуем: сначала MVP с ключевыми функциями, потом развитие по данным от реальных пользователей.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Что такое MAX?</button><div class="faq-a"><div><p>Российский мессенджер, в котором, как и в Telegram, можно запускать мини-приложения и ботов. Можем сделать решение сразу под обе площадки.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Обсудим ваше приложение</h2>
+        <p class="sub" style="margin-bottom:0">Опишите задачу в двух словах — предложим формат, сроки и ориентир по бюджету. Бесплатно.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="Приложения и боты">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+<div class="basket" id="basket"><span><b id="bN">0 услуг</b><small id="bL"></small></span><a class="btn" href="#audit">Обсудить →</a></div></main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Яндекс Реклама</a> · <a href="avito.html">Авито</a> · <a href="vk.html">VK Реклама</a> · <a href="smm.html">Соцсети и контент</a> · <a href="maps.html">Карты и отзывы</a> · <a href="seo.html">SEO</a> · <a href="marketplaces.html">Маркетплейсы</a> · <a href="sites.html">Сайты</a> · <a href="apps.html">Приложения и боты</a> · <a href="crm.html">CRM и автоматизация</a> · <a href="consulting.html">Продажи и консалтинг</a> · <a href="services.html">Все услуги</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM, nf = KV.nf;
+
+/* корзина услуг */
+(() => { const picked = new Set(), bk = document.getElementById('basket'); if (!bk) return;
+const ta = document.querySelector('#leadForm textarea[name=comment]');
+const plural = n => n % 10 === 1 && n % 100 !== 11 ? 'услуга' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 'услуги' : 'услуг');
+function upd(){ document.getElementById('bN').textContent = 'Выбрано: ' + picked.size + ' ' + plural(picked.size); document.getElementById('bL').textContent = [...picked].join(', ');
+  bk.classList.toggle('on', picked.size > 0); if (ta) ta.value = picked.size ? 'Интересуют услуги: ' + [...picked].join('; ') : ''; }
+document.querySelectorAll('.sv .add').forEach(b => b.addEventListener('click', () => { const sv = b.closest('.sv'), n = sv.querySelector('b').textContent;
+  if (picked.has(n)) { picked.delete(n); sv.classList.remove('picked'); } else { picked.add(n); sv.classList.add('picked'); } upd(); }));
+})();
+
+/* демо записи */
+const slots = [...document.querySelectorAll('#slots span:not(.x)')], cta = document.getElementById('cta2'), push = document.getElementById('push'), bon = document.getElementById('bon');
+let k = 0, bv = 1250;
+function demo(){ slots.forEach(s => s.classList.remove('on')); cta.classList.remove('ok'); cta.textContent = 'Записаться'; push.classList.remove('on');
+  const s = slots[(k++ * 2 + 3) % slots.length];
+  setTimeout(() => s.classList.add('on'), 700);
+  setTimeout(() => { cta.classList.add('ok'); cta.textContent = 'Запись подтверждена ✓'; document.getElementById('pushT').textContent = 'Вторник в ' + s.textContent + ' · напомним за 2 часа'; }, 1700);
+  setTimeout(() => { push.classList.add('on'); bv += 150; bon.textContent = nf(bv); }, 2300); }
+demo(); if (!RM) setInterval(demo, 5200);
+/* конструктор */
+const fb = [...document.querySelectorAll('#feats button')], tb = [...document.querySelectorAll('#typ button')], ta = document.querySelector('#leadForm textarea[name=comment]');
+function calc(){ const t = tb.find(b => b.classList.contains('on')); let p = +t.dataset.b, w = 1; const names = [];
+  fb.forEach(b => { if (b.classList.contains('on')){ p += b.dataset.p * t.dataset.k; w += +b.dataset.w * t.dataset.k; names.push(b.textContent); } });
+  const lo = Math.round(p / 10000) * 10000, hi = Math.round(p * 1.4 / 10000) * 10000;
+  document.getElementById('abP').textContent = nf(lo) + ' – ' + nf(hi) + ' ₽';
+  document.getElementById('abW').textContent = 'Срок: примерно ' + Math.max(1, Math.round(w)) + '–' + Math.max(2, Math.round(w * 1.4)) + ' нед.';
+  document.getElementById('abB').onclick = () => { if (ta) ta.value = t.textContent + ': ' + names.join(', '); }; }
+fb.forEach(b => b.addEventListener('click', () => { b.classList.toggle('on'); calc(); }));
+tb.forEach(b => b.addEventListener('click', () => { tb.forEach(x => x.classList.toggle('on', x === b)); calc(); }));
+calc();
+
+})();
+</script>
+<script src="assets/menu.js"></script>
+</body>
+</html>
