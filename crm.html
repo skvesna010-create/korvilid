@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRM, автоматизация и ИИ-ассистенты для бизнеса — Корвилид</title>
+<meta name="description" content="Внедрение CRM, интеграции с рекламой, сайтом, телефонией и мессенджерами, ИИ-ассистенты для первичной обработки заявок и автоматические отчёты. Бесплатный аудит.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <a href="index.html#os">Платформа</a>
+      <a href="direct.html">Директ</a>
+      <a href="avito.html">Авито</a>
+      <a href="sites.html">Сайты</a>
+      <a href="crm.html">CRM и ИИ</a>
+      <a href="index.html#prices">Тарифы</a>
+      <a href="#audit">Аудит</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / CRM и автоматизация</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Тех</span>
+        <h1>Ни одна заявка <span class="grad">не потеряется</span></h1>
+        <p class="lead">Собираем заявки из рекламы, сайта, Авито, телефонии и мессенджеров в одну CRM. Каждой заявке — ответственный, задача и напоминание. Рутину берёт на себя ИИ-ассистент, а решения остаются за людьми.</p>
+        <div class="actions"><a class="btn" href="#audit">Бесплатный аудит обработки заявок →</a><a class="btn ghost" href="#ai">Посмотреть ИИ-ассистента</a></div>
+        <div class="pills"><span>Внедрение CRM</span><span>Интеграции</span><span>Телефония</span><span>Мессенджеры</span><span>ИИ-ассистент</span><span>Автоотчёты</span></div>
+      </div>
+      <svg class="hub reveal" viewBox="0 0 560 460" role="img" aria-label="Схема: заявки из разных источников попадают в одну CRM">
+        <defs><radialGradient id="hubg"><stop offset="0" stop-color="#6E9BFF"/><stop offset=".5" stop-color="#2F6BFF" stop-opacity=".5"/><stop offset="1" stop-color="#2F6BFF" stop-opacity="0"/></radialGradient></defs>
+        <g id="hubLines" fill="none" stroke-width="2"></g>
+        <g id="hubDots"></g>
+        <circle cx="280" cy="230" r="90" fill="url(#hubg)" class="core"/>
+        <rect x="215" y="185" width="130" height="90" rx="22" fill="#12151C" stroke="#2F6BFF" stroke-width="2"/>
+        <text x="280" y="222" text-anchor="middle" fill="#EEF0F4" font-size="22" font-weight="800">CRM</text>
+        <text x="280" y="248" text-anchor="middle" fill="#98A0AE" font-size="12">заявок: <tspan id="hubN" fill="#33D69F" font-weight="800">0</tspan></text>
+        <g id="hubNodes" font-size="14" font-weight="700"></g>
+      </svg>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Без CRM и с CRM</span>
+      <h2 class="reveal d1">Куда уходят ваши заявки</h2>
+      <p class="sub reveal d2">Когда заявки живут в телефоне менеджера, мессенджерах и почте, часть из них просто забывается. С CRM каждая заявка видна, назначена и доведена до результата.</p>
+      <div class="split" style="align-items:stretch">
+        <div class="lane bad reveal"><h4>Заявки «в телефоне» <span>теряются</span></h4><div class="lanebody" id="laneBad"></div></div>
+        <div class="lane good reveal d1"><h4>Заявки в CRM <span>под контролем</span></h4><div class="lanebody" id="laneGood"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap split">
+      <div>
+        <span class="kicker reveal">ИИ-ассистент</span>
+        <h2 class="reveal d1">Отвечает за минуту, в любое время</h2>
+        <p class="sub reveal d2" style="margin-bottom:24px">Ассистент здоровается, задаёт уточняющие вопросы, записывает ответы в CRM и передаёт заявку менеджеру. Он работает по вашим правилам и не обещает клиенту того, чего вы не утвердили.</p>
+        <div class="reveal" style="display:flex;gap:18px;align-items:center"><svg viewBox="0 0 160 170" aria-hidden="true" style="height:150px;animation:float 4s ease-in-out infinite"><ellipse cx="80" cy="162" rx="42" ry="6" fill="#000" opacity=".4"/><rect x="36" y="22" width="88" height="70" rx="14" fill="#3A4152"/><rect x="44" y="30" width="72" height="54" rx="9" fill="#0B0E14" stroke="#3DE0FF" stroke-opacity=".5"/><text x="80" y="66" text-anchor="middle" font-size="24" font-weight="800" fill="#3DE0FF" font-family="monospace">&lt;/&gt;</text><rect class="spark" x="58" y="72" width="44" height="3" rx="1.5" fill="#3DE0FF" opacity=".6"/><rect x="70" y="92" width="20" height="10" fill="#8E96A6"/><rect x="44" y="102" width="72" height="48" rx="14" fill="#C9CED6"/><g class="g-cw gear" style="transform-origin:80px 126px"><circle cx="80" cy="126" r="11" fill="none" stroke="#3A4152" stroke-width="5" stroke-dasharray="4 3"/></g><circle cx="80" cy="126" r="4" fill="#3A4152"/><rect class="wing" x="22" y="108" width="24" height="10" rx="5" fill="#8E96A6"/><rect x="114" y="108" width="24" height="10" rx="5" fill="#8E96A6"/><rect x="56" y="150" width="16" height="10" rx="4" fill="#3A4152"/><rect x="88" y="150" width="16" height="10" rx="4" fill="#3A4152"/></svg><p style="color:var(--muted);font-size:15px;max-width:300px"><b style="color:#3DE0FF">Кодекс</b> связывает CRM, телефонию, сайт и мессенджеры в одну систему. Действия с деньгами и договорами ИИ сам не совершает.</p></div>
+      </div>
+      <div class="chat2 reveal" id="chat2"><div class="hd"><i></i>ИИ-ассистент · чат с сайта</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Что входит</span>
+      <h2 class="reveal d1">От заявки до отчёта — автоматически</h2>
+      <p class="sub reveal d2">Подбираем решение под ваш процесс продаж, а не наоборот.</p>
+      <div class="incl"><div class="card reveal"><div class="n">01</div><h3>Аудит процесса</h3><p>Разбираем, как сейчас приходят и обрабатываются заявки, где они теряются.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Выбор CRM</h3><p>Подбираем готовую CRM под задачи и бюджет или дорабатываем ту, что у вас уже есть.</p></div><div class="card reveal d2"><div class="n">03</div><h3>Воронки и этапы</h3><p>Настраиваем этапы сделки, обязательные поля, задачи и напоминания.</p></div><div class="card reveal d3"><div class="n">04</div><h3>Интеграции</h3><p>Сайт, квизы, Авито, реклама, телефония и мессенджеры — заявки попадают в CRM сами.</p></div><div class="card reveal"><div class="n">05</div><h3>ИИ-ассистент</h3><p>Первичные ответы, уточняющие вопросы и запись ответов в карточку клиента.</p></div><div class="card reveal d1"><div class="n">06</div><h3>Шаблоны документов</h3><p>Коммерческие предложения и договоры формируются из данных сделки.</p></div><div class="card reveal d2"><div class="n">07</div><h3>Автоотчёты</h3><p>Заявки, сделки, источники и цена клиента — в отчёте без ручного сбора.</p></div><div class="card reveal d3"><div class="n">08</div><h3>Обучение команды</h3><p>Инструкции и обучение менеджеров, чтобы CRM реально использовали.</p></div></div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Цены — ориентир. Точную смету с объёмом работ и сроками фиксируем в договоре после бесплатного аудита.</p>
+      <div class="plans3"><div class="plan best reveal"><span class="badge">Чаще выбирают для старта</span><h3>ВНЕДРЕНИЕ CRM</h3><div class="price">от 60 000 ₽</div><div class="setup">разово, 2–4 недели</div><ul><li>Аудит процесса продаж</li><li>Настройка воронок и задач</li><li>Интеграция сайта и форм</li><li>Подключение телефонии</li><li>Обучение менеджеров</li></ul><a class="btn" href="#audit">Обсудить</a></div><div class="plan reveal d1"><h3>ИИ-АССИСТЕНТ</h3><div class="price">от 80 000 ₽</div><div class="setup">+ от 10 000 ₽ / мес на работу и поддержку</div><ul><li>Сценарии под вашу нишу</li><li>Ответы в чате сайта и мессенджерах</li><li>Запись ответов в CRM</li><li>Передача заявки менеджеру</li><li>Журнал всех диалогов</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div><div class="plan reveal d2"><h3>СОПРОВОЖДЕНИЕ</h3><div class="price">от 5 000 ₽ / мес</div><div class="setup">ежемесячно</div><ul><li>Поддержка интеграций</li><li>Доработка воронок</li><li>Новые отчёты</li><li>Консультации по процессам</li><li>Контроль ошибок</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Какую CRM вы внедряете?</button><div class="faq-a"><div><p>Подбираем под задачу: популярные готовые CRM для малого и среднего бизнеса или доработку вашей текущей. Решение зависит от количества заявок, процесса продаж и бюджета.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">ИИ-ассистент будет сам отвечать клиентам?</button><div class="faq-a"><div><p>Да, но только в рамках правил, которые вы утвердили: приветствие, уточняющие вопросы, запись ответов. Цены, скидки, договоры и деньги — только через человека.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Где хранятся данные клиентов?</button><div class="faq-a"><div><p>В CRM, данные которой размещаются в России. Это требование закона о персональных данных — мы учитываем его при выборе решения.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Можно подключить Авито и Директ?</button><div class="faq-a"><div><p>Да, через официальные интеграции и API площадок — в пределах тех данных и функций, которые площадки открывают. Что именно доступно, проверяем на аудите.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Сколько занимает внедрение?</button><div class="faq-a"><div><p>Базовое внедрение — 2–4 недели. ИИ-ассистент — ещё 2–4 недели с тестированием на реальных диалогах.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Бесплатный аудит обработки заявок</h2>
+        <p class="sub" style="margin-bottom:0">Расскажите, откуда приходят заявки и как вы их обрабатываете — за 48 часов в рабочие дни покажем, где они теряются и что автоматизировать первым.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="CRM и автоматизация">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Директ</a> · <a href="avito.html">Авито</a> · <a href="sites.html">Сайты</a> · <a href="crm.html">CRM</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM, NS = 'http://www.w3.org/2000/svg';
+/* хаб */
+const N = [['Директ',60,60,'#FFD54A'],['Авито',60,230,'#3DE0FF'],['Сайт',60,400,'#6E9BFF'],['Телефония',500,60,'#33D69F'],['MAX',500,230,'#A98BFF'],['Почта',500,400,'#FFB547']];
+const L = document.getElementById('hubLines'), D = document.getElementById('hubDots'), G = document.getElementById('hubNodes');
+const paths = N.map(([t, x, y, c]) => {
+  const p = document.createElementNS(NS, 'path'); const sx = x < 280 ? x+50 : x-50;
+  p.setAttribute('d', `M${sx} ${y} C${(sx+280)/2} ${y} ${(sx+280)/2} 230 ${x < 280 ? 215 : 345} 230`); p.setAttribute('stroke', c); p.setAttribute('opacity', '.35'); p.setAttribute('class', 'flowline'); L.append(p);
+  const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'node');
+  g.innerHTML = `<rect x="${x-50}" y="${y-20}" width="100" height="40" rx="12" fill="#171B24" stroke="#2E3445"/><circle cx="${x-32}" cy="${y}" r="6" fill="${c}"/><text x="${x-20}" y="${y+5}" fill="#EEF0F4">${t}</text>`; G.append(g);
+  return [p, c];
+});
+let n = 0;
+function shoot(){ const [p, c] = paths[Math.floor(Math.random()*paths.length)], len = p.getTotalLength();
+  const d = document.createElementNS(NS, 'circle'); d.setAttribute('r', 6); d.setAttribute('fill', c); D.append(d); const t0 = performance.now();
+  (function f(t){ const k = Math.min(1, (t-t0)/1300), pt = p.getPointAtLength(k*len); d.setAttribute('cx', pt.x); d.setAttribute('cy', pt.y);
+    if (k < 1) requestAnimationFrame(f); else { d.remove(); document.getElementById('hubN').textContent = ++n; } })(t0); }
+shoot(); if (!RM) setInterval(shoot, 700);
+/* две дорожки */
+const leads = ['Ремонт кухни · Авито','Потолки · сайт','Окна · звонок','Баня · MAX','Шкаф · почта','Ванная · Директ'];
+const bad = document.getElementById('laneBad'), good = document.getElementById('laneGood'); let li = 0;
+function laneTick(){
+  const t = leads[li++ % leads.length];
+  const mk = (host, cls, txt) => { const c = document.createElement('div'); c.className = 'lcard'; c.innerHTML = t + '<small>' + txt + '</small>'; c.style.transform = 'translateY(-60px)'; c.style.opacity = '0'; host.prepend(c);
+    [...host.children].forEach((el, i) => { requestAnimationFrame(() => { el.style.transform = `translateY(${i*58}px)`; el.style.opacity = el.classList.contains('lost') ? '.25' : '1'; }); });
+    if (host.children.length > 5) host.lastChild.remove();
+    setTimeout(() => { c.classList.add(cls); c.querySelector('small').textContent = cls === 'lost' ? 'не перезвонили — клиент ушёл' : 'менеджер: Ольга · задача: перезвонить до 15:00 ✓'; if (cls === 'lost') c.style.opacity = '.25'; }, 1600);
+  };
+  mk(bad, Math.random() < .45 ? 'lost' : 'done', 'ждёт ответа…'); mk(good, 'done', 'назначается ответственный…');
+}
+let l0 = false;
+new IntersectionObserver(es => { if (es[0].isIntersecting && !l0){ l0 = true; laneTick(); if (!RM) setInterval(laneTick, 2400); } }, {threshold:.3}).observe(bad);
+/* чат ИИ */
+const chat = document.getElementById('chat2');
+const msgs = [['u','Здравствуйте, сколько стоит ремонт ванной?'],['b','Здравствуйте! Подскажу. Какая площадь ванной и нужна ли замена сантехники?'],['u','Около 4 м², сантехнику меняем'],['b','Спасибо! Когда удобно, чтобы мастер приехал на бесплатный замер — на этой неделе или на следующей?'],['u','В субботу утром'],['sys','✓ Заявка в CRM: ванная 4 м², замена сантехники, замер в субботу утром. Передано менеджеру.']];
+let mi = 0, c0 = false;
+function nextMsg(){ if (mi >= msgs.length){ setTimeout(() => { chat.querySelectorAll('.cm').forEach(e => e.remove()); mi = 0; if (!RM) nextMsg(); }, 3500); return; }
+  const [w, t] = msgs[mi++]; const m = document.createElement('div'); m.className = 'cm ' + w; m.textContent = t; chat.append(m);
+  requestAnimationFrame(() => m.classList.add('show')); setTimeout(nextMsg, w === 'b' ? 1900 : 1300); }
+new IntersectionObserver(es => { if (es[0].isIntersecting && !c0){ c0 = true; nextMsg(); } }, {threshold:.3}).observe(chat);
+})();
+</script>
+</body>
+</html>
