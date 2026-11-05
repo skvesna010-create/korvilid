@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДомМастер — ремонт квартир под ключ — демо-сайт Корвилид</title>
+<meta name="robots" content="noindex">
+<style>:root{--bg:#F6F3EE;--fg:#1C1C1C;--acc:#E8542B;--accfg:#fff;--card:#FFFFFF;--alt:#EFEAE2;--soft:#FBE3DA;--line:#E3DCD1;--line2:#CFC5B6;--hbg:rgba(246,243,238,.9);--r:14px;--f:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--hf:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--hw:900;--herobg:radial-gradient(900px 500px at 85% 20%,#FBE3DA,transparent);--ctabg:#1C1C1C;--ctafg:#fff;--ctabtn:#E8542B;--ctabtnfg:#fff}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--bg);color:var(--fg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}.w{max-width:1180px;margin:0 auto;padding:0 24px}
+.ribbon{background:#0B0E14;color:#C9CED6;font:600 13px -apple-system,Segoe UI,Roboto,Arial,sans-serif;text-align:center;padding:8px 12px}
+.ribbon a{color:#6E9BFF;font-weight:800;text-decoration:none;margin-left:8px}
+header{position:sticky;top:0;z-index:20;background:var(--hbg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.06em;font-size:19px;text-decoration:none;font-family:var(--hf)}
+.brand svg{width:34px;height:34px}
+.nav nav{display:flex;gap:26px;font-size:15px;opacity:.85}.nav nav a{text-decoration:none}.nav nav a:hover{color:var(--acc)}
+.tel{font-weight:800;font-size:16px;text-align:right;line-height:1.2}.tel small{display:block;font-weight:500;font-size:12px;opacity:.6}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:var(--accfg);border:0;border-radius:var(--r);padding:16px 26px;font:800 16px var(--f);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 12px 30px -12px var(--acc)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px var(--acc)}
+.btn.o{background:transparent;color:var(--fg);border:2px solid var(--line2);box-shadow:none}
+.hero{position:relative;overflow:hidden;padding:80px 0 70px;background:var(--herobg)}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero.center .w{grid-template-columns:1fr;text-align:center}
+.hero.center .ill{max-width:560px;margin:10px auto 0}.hero.center .acts,.hero.center .trust{justify-content:center}.hero.center .sub{margin-left:auto;margin-right:auto}
+.tagline{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);background:var(--soft);border-radius:999px;padding:7px 14px;margin-bottom:22px}
+h1{font-family:var(--hf);font-size:clamp(36px,5.2vw,64px);line-height:1.05;letter-spacing:-.02em;font-weight:var(--hw)}
+h1 em{font-style:normal;color:var(--acc)}
+.sub{font-size:19px;opacity:.8;max-width:560px;margin:20px 0 30px}
+.acts{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px}
+.trust div b{display:block;font-size:26px;font-family:var(--hf);color:var(--acc)}.trust div span{font-size:13px;opacity:.7}
+.ill{width:100%;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.18))}
+.fl{animation:fl 5s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-12px)}}
+.sp{transform-box:fill-box;transform-origin:center;animation:sp 12s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.pu{animation:pu 2.6s ease-in-out infinite}@keyframes pu{50%{opacity:.35}}
+.sm{animation:sm 3s ease-out infinite}@keyframes sm{0%{transform:translateY(0);opacity:.8}100%{transform:translateY(-30px);opacity:0}}
+section{padding:90px 0}
+.k{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;display:block}
+h2{font-family:var(--hf);font-size:clamp(28px,3.8vw,46px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px;font-weight:var(--hw)}
+.lead{opacity:.75;max-width:640px;margin-bottom:44px;font-size:17px}
+.alt{background:var(--alt)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+/* квиз */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:calc(var(--r)*2);padding:36px;box-shadow:0 40px 80px -40px rgba(0,0,0,.35);max-width:900px;margin:0 auto}
+.qtop{display:flex;justify-content:space-between;font-size:14px;opacity:.7}
+.qbar{height:8px;background:var(--soft);border-radius:6px;margin:12px 0 26px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--acc);border-radius:6px;transition:width .5s}
+.qq{font-family:var(--hf);font-size:26px;font-weight:800;margin-bottom:20px}
+.qo{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.qo button{background:var(--bg);border:2px solid var(--line);border-radius:var(--r);padding:18px 12px;font:600 15px var(--f);color:var(--fg);cursor:pointer;transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:10px}
+.qo button .e{font-size:34px;line-height:1}
+.qo button:hover{border-color:var(--acc);transform:translateY(-3px)}
+.qo button.on{border-color:var(--acc);background:var(--soft)}
+.qnav{display:flex;justify-content:space-between;margin-top:26px}
+.qnav button{background:none;border:0;font:700 15px var(--f);color:var(--fg);opacity:.6;cursor:pointer}
+.qres{text-align:center}
+.qres .price{font-family:var(--hf);font-size:44px;font-weight:900;color:var(--acc);margin:10px 0}
+.qform{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;margin-top:22px}
+input{width:100%;background:var(--bg);border:2px solid var(--line);border-radius:var(--r);padding:15px;font:16px var(--f);color:var(--fg)}
+input:focus{outline:none;border-color:var(--acc)}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;opacity:.75;margin-top:12px;text-align:left}
+.chk input{width:16px;height:16px;margin-top:2px;flex:0 0 16px;accent-color:var(--acc)}
+.done{padding:20px 0}.done .ok{width:80px;height:80px;border-radius:50%;background:var(--soft);color:var(--acc);font-size:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;animation:pop .6s cubic-bezier(.2,1.5,.4,1)}@keyframes pop{from{transform:scale(.4);opacity:0}}
+/* преимущества */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bc{background:var(--card);border:1px solid var(--line);border-radius:calc(var(--r)*1.5);padding:26px;transition:transform .3s,box-shadow .3s}
+.bc:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(0,0,0,.35)}
+.bc .ic{width:54px;height:54px;border-radius:var(--r);background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px}
+.bc h3{font-size:19px;margin-bottom:8px;font-family:var(--hf)}.bc p{opacity:.72;font-size:15px}
+/* галерея */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gi{position:relative;border-radius:calc(var(--r)*1.5);overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gi svg{width:100%;height:100%;display:block;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.gi:hover svg{transform:scale(1.08)}
+.gi span{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.6);color:#fff;font-size:13px;font-weight:700;border-radius:8px;padding:6px 10px;backdrop-filter:blur(4px)}
+/* этапы */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative}
+.steps:before{content:"";position:absolute;left:5%;right:5%;top:30px;height:3px;background:var(--line)}
+.steps .fill{position:absolute;left:5%;top:30px;height:3px;width:0;background:var(--acc);transition:width 2s ease}
+.steps.in .fill{width:90%}
+.st{position:relative;text-align:center}
+.st .n{width:60px;height:60px;border-radius:50%;background:var(--card);border:3px solid var(--acc);display:flex;align-items:center;justify-content:center;font:900 22px var(--hf);margin:0 auto 14px;position:relative;z-index:1;color:var(--acc)}
+.st h4{font-size:17px;margin-bottom:6px}.st p{font-size:14px;opacity:.7}
+/* цены */
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pc{background:var(--card);border:2px solid var(--line);border-radius:calc(var(--r)*1.5);padding:30px;display:flex;flex-direction:column}
+.pc.hl{border-color:var(--acc);transform:scale(1.03);box-shadow:0 30px 60px -30px var(--acc)}
+.pc h3{font-family:var(--hf);font-size:21px}.pc .p{font-family:var(--hf);font-size:34px;font-weight:900;color:var(--acc);margin:12px 0}
+.pc ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;flex:1}.pc li:before{content:"✓ ";color:var(--acc);font-weight:900}
+.note{font-size:13px;opacity:.6;margin-top:18px;text-align:center}
+/* faq */
+.faq{max-width:840px;display:grid;gap:12px}
+.fq{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fq button{width:100%;text-align:left;background:none;border:0;font:700 17px var(--f);color:var(--fg);padding:20px 54px 20px 22px;cursor:pointer;position:relative}
+.fq button:after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:26px;color:var(--acc);transition:transform .3s}
+.fq.op button:after{transform:translateY(-50%) rotate(45deg)}
+.fq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}.fq.op .a{grid-template-rows:1fr}.fq .a>div{overflow:hidden}.fq .a p{padding:0 22px 20px;opacity:.75}
+/* финал */
+.cta{background:var(--ctabg);color:var(--ctafg);border-radius:calc(var(--r)*2);padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.cta form{display:grid;gap:12px}.cta input{background:rgba(255,255,255,.95);color:#111;border-color:transparent}
+.cta .btn{background:var(--ctabtn);color:var(--ctabtnfg)}
+footer{padding:36px 0;font-size:13px;opacity:.6;text-align:center}
+@media (max-width:900px){.hero .w,.cta{grid-template-columns:1fr}.grid4,.gal,.pr{grid-template-columns:1fr 1fr}.qo{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps:before,.steps .fill{display:none}.nav nav,.tel{display:none}.qform{grid-template-columns:1fr}.cta{padding:30px}}
+@media (max-width:560px){.grid4,.gal,.pr{grid-template-columns:1fr}.pc.hl{transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head>
+<body>
+<div class="ribbon">Это демо-сайт, сделанный Корвилид для примера. Цены и данные условные.<a href="../sites.html#audit" target="_top">Хочу такой сайт →</a></div>
+<header><div class="w nav"><a class="brand" href="#"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#E8542B"/><path d="M8 21 L20 10 L32 21 V31 H8Z" fill="#fff"/><rect x="17" y="23" width="6" height="8" fill="#E8542B"/></svg>ДОМ·МАСТЕР</a><nav><a href="#quiz">Расчёт</a><a href="#why">Преимущества</a><a href="#works">Работы</a><a href="#price">Цены</a><a href="#faq">Вопросы</a></nav><div class="tel">+7 (000) 000-00-00<small>ежедневно 9–21</small></div></div></header>
+<div class="hero"><div class="w"><div><span class="tagline">Ремонт квартир в Екатеринбурге</span><h1>Ремонт квартиры <em>под ключ</em> с фиксированной сметой</h1><p class="sub">Рассчитайте стоимость за 1 минуту. Цена фиксируется в договоре и не растёт в процессе ремонта.</p><div class="acts"><a class="btn" href="#quiz">Рассчитать смету →</a><a class="btn o" href="#works">Смотреть работы</a></div><div class="trust"><div><b data-count="12" data-suf=" лет">0</b><span>на рынке</span></div><div><b data-count="5" data-suf=" лет">0</b><span>гарантия</span></div><div><b data-count="0" data-suf=" ₽">0</b><span>замер и смета</span></div></div></div><svg class="ill fl" viewBox="0 0 500 420"><rect x="30" y="360" width="440" height="14" rx="7" fill="#E3DCD1"/><rect x="80" y="160" width="260" height="200" fill="#fff" stroke="#1C1C1C" stroke-width="4"/><polygon points="60,170 210,60 360,170" fill="#E8542B"/><rect x="120" y="230" width="60" height="130" fill="#1C1C1C"/><rect x="220" y="210" width="80" height="70" fill="#FBE3DA" stroke="#1C1C1C" stroke-width="4"/><line x1="260" y1="210" x2="260" y2="280" stroke="#1C1C1C" stroke-width="4"/><g class="sp" style="transform-origin:410px 120px"><circle cx="410" cy="120" r="34" fill="none" stroke="#E8542B" stroke-width="10" stroke-dasharray="12 8"/></g><rect x="370" y="250" width="70" height="110" rx="8" fill="#C9BFAE"/><rect x="380" y="232" width="50" height="22" rx="6" fill="#E8542B"/><circle class="pu" cx="100" cy="100" r="8" fill="#E8542B"/></svg></div></div>
+<section id="quiz" class="alt"><div class="w"><div style="text-align:center"><span class="k">Калькулятор ремонта</span><h2>Рассчитайте стоимость ремонта за 1 минуту</h2><p class="lead" style="margin-left:auto;margin-right:auto">Ответьте на 4 вопроса — покажем примерную стоимость и пришлём подробную смету.</p></div><div class="quiz rv" id="qz"></div></div></section>
+<section id="why"><div class="w"><span class="k">Почему мы</span><h2>Ремонт без сюрпризов</h2><p class="lead">Мы убираем всё, из-за чего ремонт обычно растягивается и дорожает.</p><div class="grid4"><div class="bc rv"><div class="ic">📄</div><h3>Смета в договоре</h3><p>Цена фиксируется и не меняется в процессе работ.</p></div><div class="bc rv"><div class="ic">📸</div><h3>Фотоотчёты</h3><p>Каждый день — фото с объекта в мессенджере.</p></div><div class="bc rv"><div class="ic">🧹</div><h3>Чистота</h3><p>Вывозим мусор и убираем после каждого этапа.</p></div><div class="bc rv"><div class="ic">🛡️</div><h3>Гарантия 5 лет</h3><p>На все работы — по договору.</p></div></div></div></section>
+<section id="works" class="alt"><div class="w"><span class="k">Работы</span><h2>Наши работы</h2><p class="lead">Иллюстрации для демо. На реальном сайте здесь будут фото ваших объектов.</p><div class="gal"><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g14689" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFE7DB"/><stop offset="1" stop-color="#D9CBB6"/></linearGradient></defs><rect width="400" height="300" fill="url(#g14689)"/><rect x="0" y="210" width="400" height="90" fill="#B9A58A"/><rect x="60" y="150" width="190" height="70" rx="12" fill="#6B7F73"/><rect x="290" y="60" width="70" height="110" fill="#fff" opacity=".7"/><circle cx="330" cy="200" r="18" fill="#E8542B"/></svg><span>Гостиная, 48 м²</span></div><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g82816" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F1EC"/><stop offset="1" stop-color="#E2DBD0"/></linearGradient></defs><rect width="400" height="300" fill="url(#g82816)"/><rect x="30" y="140" width="340" height="110" fill="#fff"/><rect x="30" y="60" width="200" height="60" fill="#fff"/><rect x="40" y="150" width="80" height="90" fill="#E8542B" opacity=".85"/><rect x="130" y="150" width="80" height="90" fill="#E8542B" opacity=".6"/><rect x="250" y="70" width="110" height="50" fill="#1C1C1C" opacity=".15"/></svg><span>Кухня, 12 м²</span></div><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g78739" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9E4F0"/><stop offset="1" stop-color="#D2CCDD"/></linearGradient></defs><rect width="400" height="300" fill="url(#g78739)"/><rect x="0" y="220" width="400" height="80" fill="#A99FB9"/><rect x="80" y="160" width="240" height="70" rx="10" fill="#fff"/><rect x="80" y="130" width="240" height="40" rx="10" fill="#7C6F92"/><circle cx="340" cy="80" r="20" fill="#FFE27A" opacity=".8"/></svg><span>Спальня, 16 м²</span></div><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g71051" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6F0F3"/><stop offset="1" stop-color="#C9DDE3"/></linearGradient></defs><rect width="400" height="300" fill="url(#g71051)"/><rect x="40" y="170" width="200" height="70" rx="30" fill="#fff"/><rect x="280" y="80" width="70" height="160" fill="#fff" opacity=".8"/><g stroke="#9BBFC9" stroke-width="2"><line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="110" x2="400" y2="110"/></g></svg><span>Ванная, 5 м²</span></div><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g29603" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2EDE6"/><stop offset="1" stop-color="#DDD3C5"/></linearGradient></defs><rect width="400" height="300" fill="url(#g29603)"/><rect x="60" y="60" width="120" height="200" fill="#8A6F55"/><rect x="220" y="80" width="110" height="140" rx="55" fill="#fff" opacity=".8"/></svg><span>Прихожая, 8 м²</span></div><div class="gi rv"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g68885" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFE0BF"/></linearGradient></defs><rect width="400" height="300" fill="url(#g68885)"/><rect x="0" y="220" width="400" height="80" fill="#F2C38B"/><rect x="70" y="150" width="140" height="80" rx="10" fill="#7FB8E6"/><circle cx="300" cy="120" r="40" fill="#E8542B" opacity=".7"/></svg><span>Детская, 14 м²</span></div></div></div></section>
+<section><div class="w"><span class="k">Как мы работаем</span><h2>5 шагов до новой квартиры</h2><p class="lead">Прозрачный процесс — вы всегда знаете, что происходит на объекте.</p><div class="steps"><span class="fill"></span><div class="st"><div class="n">1</div><h4>Замер</h4><p>Бесплатно, в удобное время</p></div><div class="st"><div class="n">2</div><h4>Смета</h4><p>Подробная, по каждой работе</p></div><div class="st"><div class="n">3</div><h4>Договор</h4><p>Цена и сроки фиксируются</p></div><div class="st"><div class="n">4</div><h4>Ремонт</h4><p>Фотоотчёт каждый день</p></div><div class="st"><div class="n">5</div><h4>Сдача</h4><p>Приёмка и гарантия 5 лет</p></div></div></div></section>
+<section id="price" class="alt"><div class="w"><span class="k">Цены</span><h2>Стоимость за м²</h2><p class="lead">Цены в демо условные — для примера оформления.</p><div class="pr"><div class="pc rv"><h3>Косметический</h3><div class="p">от 4 500 ₽/м²</div><ul><li>Покраска, обои</li><li>Замена напольного покрытия</li><li>Срок от 3 недель</li></ul><a class="btn o" href="#quiz">Рассчитать</a></div><div class="pc rv hl"><h3>Капитальный</h3><div class="p">от 9 900 ₽/м²</div><ul><li>Электрика и сантехника</li><li>Выравнивание стен и пола</li><li>Срок от 2 месяцев</li></ul><a class="btn" href="#quiz">Рассчитать</a></div><div class="pc rv"><h3>Дизайнерский</h3><div class="p">от 14 900 ₽/м²</div><ul><li>Дизайн-проект</li><li>Авторский надзор</li><li>Комплектация</li></ul><a class="btn o" href="#quiz">Рассчитать</a></div></div><p class="note">Точная стоимость — после замера и расчёта.</p></div></section>
+<section id="faq"><div class="w"><span class="k">Вопросы</span><h2>Частые вопросы</h2><div class="faq" style="margin-top:30px"><div class="fq"><button>Может ли цена вырасти в процессе?</button><div class="a"><div><p>Нет: стоимость работ фиксируется в договоре. Меняется только если вы сами решите добавить работы.</p></div></div></div><div class="fq"><button>Сколько длится ремонт?</button><div class="a"><div><p>Косметический — от 3 недель, капитальный — от 2 месяцев. Точный срок — в договоре.</p></div></div></div><div class="fq"><button>Вы закупаете материалы?</button><div class="a"><div><p>Да, черновые материалы закупаем мы по ценам поставщиков, чистовые — на ваш выбор.</p></div></div></div></div></div></section>
+<section style="padding-top:0"><div class="w"><div class="cta rv"><div><h2 style="color:inherit">Получите смету бесплатно</h2><p style="opacity:.85;font-size:17px">Оставьте телефон — мастер приедет на замер в удобное время и подготовит смету за 1 день.</p></div><form class="demo"><input placeholder="Ваше имя" required><input placeholder="+7 (___) ___-__-__" required><button class="btn" type="submit">Вызвать замерщика</button><label class="chk" style="opacity:.85"><input type="checkbox" required checked> Согласен на обработку персональных данных</label></form></div></div></section>
+<footer>© ДОМ·МАСТЕР — демо-сайт, созданный студией Корвилид · korvilid.ru</footer>
+<script>
+const C = {"quiz": [["Какой тип ремонта нужен?", [["🖌️", "Косметический", 0.55], ["🔨", "Капитальный", 1], ["✨", "Дизайнерский", 1.45], ["🤔", "Пока не знаю", 0.9]]], ["Тип жилья", [["🏢", "Новостройка", 1], ["🏚️", "Вторичка", 1.15], ["🏡", "Дом", 1.25], ["🏬", "Коммерция", 1.1]]], ["Площадь квартиры", [["📐", "до 40 м²", 0.6], ["📏", "40–60 м²", 1], ["🏠", "60–90 м²", 1.45], ["🏰", "больше 90 м²", 2]]], ["Когда начинаем?", [["⚡", "Срочно", 1.05], ["📅", "В течение месяца", 1], ["🗓️", "Через 2–3 месяца", 1], ["👀", "Присматриваюсь", 1]]]], "base": 950000, "restitle": "Примерная стоимость ремонта", "unit": "смету", "qcta": "Получить смету", "qhint": "Расчёт за 1 минуту"};
+const $ = s => document.querySelector(s);
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+document.querySelectorAll('.rv,.steps').forEach(el => io.observe(el));
+document.querySelectorAll('.fq button').forEach(b => b.addEventListener('click', () => b.parentElement.classList.toggle('op')));
+/* счётчики */
+document.querySelectorAll('[data-count]').forEach(el => { const to = +el.dataset.count, suf = el.dataset.suf || ''; let done = false;
+  new IntersectionObserver(es => { if (es[0].isIntersecting && !done){ done = true; const t0 = performance.now();
+    (function s(t){ const k = Math.min(1,(t-t0)/1400); el.textContent = Math.round(to*(1-Math.pow(1-k,3))).toLocaleString('ru-RU') + suf; if (k<1) requestAnimationFrame(s); })(t0); } }).observe(el); });
+/* квиз */
+const box = $('#qz'); let step = 0, ans = [];
+const fmt = v => Math.round(v/1000)*1000;
+function render(){
+  if (step < C.quiz.length){
+    const [q, opts] = C.quiz[step];
+    box.innerHTML = `<div class="qtop"><span>Вопрос ${step+1} из ${C.quiz.length}</span><span>${C.qhint}</span></div><div class="qbar"><i style="width:${step/(C.quiz.length+1)*100}%"></i></div><div class="qq">${q}</div><div class="qo">${opts.map((o,i) => `<button data-i="${i}" class="${ans[step]===i?'on':''}"><span class="e">${o[0]}</span>${o[1]}</button>`).join('')}</div><div class="qnav"><button id="qback" style="visibility:${step?'visible':'hidden'}">← Назад</button><span></span></div>`;
+    requestAnimationFrame(() => box.querySelector('.qbar i').style.width = ((step+1)/(C.quiz.length+1)*100) + '%');
+    box.querySelectorAll('.qo button').forEach(b => b.addEventListener('click', () => { ans[step] = +b.dataset.i; b.classList.add('on'); setTimeout(() => { step++; render(); }, 260); }));
+    const bk = $('#qback'); if (bk) bk.addEventListener('click', () => { step--; render(); });
+  } else if (step === C.quiz.length){
+    let v = C.base; C.quiz.forEach((q, i) => { v *= q[1][ans[i]][2]; });
+    box.innerHTML = `<div class="qbar"><i style="width:${C.quiz.length/(C.quiz.length+1)*100}%"></i></div><div class="qres"><div style="opacity:.7">${C.restitle}</div><div class="price">${fmt(v*.88).toLocaleString('ru-RU')} – ${fmt(v*1.12).toLocaleString('ru-RU')} ₽</div><div style="opacity:.7;max-width:520px;margin:0 auto">Предварительная оценка по вашим ответам. Точную ${C.unit} пришлём после замера.</div><form class="qform" id="qf"><input placeholder="Ваше имя" required><input placeholder="+7 (___) ___-__-__" required><button class="btn" type="submit">${C.qcta}</button></form><label class="chk"><input type="checkbox" required checked> Согласен на обработку персональных данных</label></div>`;
+    requestAnimationFrame(() => box.querySelector('.qbar i').style.width = '100%');
+    $('#qf').addEventListener('submit', e => { e.preventDefault(); step++; render(); });
+  } else {
+    box.innerHTML = `<div class="done qres"><div class="ok">✓</div><div class="qq">Готово! Это демо-сайт</div><p style="opacity:.75;max-width:520px;margin:0 auto 20px">Так клиент увидит подтверждение. На реальном сайте заявка с ответами квиза сразу уйдёт в CRM и менеджеру. Данные из этой формы никуда не отправляются.</p><button class="btn o" id="again">Пройти ещё раз</button></div>`;
+    $('#again').addEventListener('click', () => { step = 0; ans = []; render(); });
+  }
+}
+render();
+document.querySelectorAll('form.demo').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); f.innerHTML = '<div style="font-size:22px;font-weight:800">✓ Спасибо! Это демо-сайт</div><div style="opacity:.8">На реальном сайте заявка ушла бы менеджеру. Данные никуда не отправлены.</div>'; }));
+</script>
+</body></html>

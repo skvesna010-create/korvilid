@@ -65,3 +65,5 @@ if (roi){
   ids.forEach(id => $('#'+id).addEventListener('input', upd)); upd();
 }
 })();
+/* масштаб живых превью */
+(() => { const fit = () => document.querySelectorAll('.ex .win').forEach(w => w.style.setProperty('--s', (w.clientWidth/1280).toFixed(4))); fit(); addEventListener('resize', fit); })();
