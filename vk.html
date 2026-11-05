@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка и ведение VK Рекламы — Корвилид</title>
+<meta name="description" content="VK Реклама для бизнеса: аудитории, креативы, лид-формы, сообщество, ретаргетинг и маркировка. Считаем цену заявки. Бесплатный аудит за 48 часов.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <a href="direct.html">Директ</a>
+      <a href="avito.html">Авито</a>
+      <a href="vk.html">VK</a>
+      <a href="seo.html">SEO</a>
+      <a href="sites.html">Сайты</a>
+      <a href="crm.html">CRM и ИИ</a>
+      <a href="consulting.html">Консалтинг</a>
+      <a href="index.html#prices">Тарифы</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / VK Реклама</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Реклама</span>
+        <h1>VK Реклама, которая находит клиентов <span class="grad">до того, как они ищут</span></h1>
+        <p class="lead">Показываем рекламу тем, кто похож на ваших покупателей: по интересам, ключевым фразам и вашей базе клиентов. Заявки собираем через лид-формы прямо во ВКонтакте — без перехода на сайт.</p>
+        <div class="actions"><a class="btn" href="#audit">Бесплатный аудит VK →</a><a class="btn ghost" href="#aud">Собрать аудиторию</a></div>
+        <div class="pills"><span>Лид-формы</span><span>Аудитории</span><span>Ретаргетинг</span><span>Видео и карусели</span><span>Сообщество</span><span>Маркировка</span></div>
+      </div>
+      <div class="vkfeed reveal" aria-label="Демонстрация: реклама в ленте и лид-форма">
+        <div class="top"><span>Лента</span><span>VK</span></div>
+        <div class="vkpost sk"><div class="au"><i style="background:var(--line2)"></i><div style="flex:1"><div class="ln" style="width:50%"></div></div></div><div class="ln"></div><div class="ln" style="width:70%"></div></div>
+        <div class="vkpost" id="vkad"><div class="au"><i></i><span><b>Ваша компания</b><small>Реклама · 0+</small></span></div><div class="img"><b>Ремонт квартиры<br>с фиксированной сметой</b></div><div class="cta"><span>Узнайте стоимость за 1 минуту</span><span>Рассчитать</span></div></div>
+        <div class="vkpost sk"><div class="ln" style="width:40%"></div><div class="ln"></div></div>
+        <div class="leadform" id="lf"><h5>Расчёт стоимости ремонта</h5><p>Данные из профиля VK подставятся автоматически</p><div class="f" id="lf1"></div><div class="f" id="lf2"></div><div class="b">Отправить</div><div class="ok" id="lfok"><span>✓</span>Заявка в CRM</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Что входит</span>
+      <h2 class="reveal d1">Полный цикл VK Рекламы</h2>
+      <p class="sub reveal d2">От стратегии и аудиторий до лид-форм, ответов в сообщениях и отчёта с ценой заявки.</p>
+      <div class="incl"><div class="card reveal"><div class="n">01</div><h3>Стратегия и офферы</h3><p>Определяем, кому и с каким предложением показываться: в VK покупают эмоцией и выгодой.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Аудитории</h3><p>Интересы, ключевые фразы, сообщества конкурентов, похожие на ваших клиентов, база телефонов.</p></div><div class="card reveal d2"><div class="n">03</div><h3>Креативы</h3><p>Баннеры, карусели и короткие видео. Тестируем несколько вариантов и оставляем лучшие.</p></div><div class="card reveal d3"><div class="n">04</div><h3>Лид-формы</h3><p>Заявка прямо во ВКонтакте: имя и телефон подставляются из профиля, конверсия выше.</p></div><div class="card reveal"><div class="n">05</div><h3>Сообщество</h3><p>Оформляем группу, меню, товары и услуги, чтобы реклама вела в «живое» место.</p></div><div class="card reveal d1"><div class="n">06</div><h3>Ретаргетинг</h3><p>Пиксель VK Ads на сайт: догоняем тех, кто смотрел, но не оставил заявку.</p></div><div class="card reveal d2"><div class="n">07</div><h3>Маркировка</h3><p>Реклама маркируется по закону: токен ERID, данные рекламодателя в ОРД.</p></div><div class="card reveal d3"><div class="n">08</div><h3>Отчёт</h3><p>Охват, клики, заявки и цена заявки каждую неделю — в одном отчёте с другими каналами.</p></div></div>
+    </div>
+  </section>
+
+  <section id="aud">
+    <div class="wrap split">
+      <div>
+        <span class="kicker reveal">Конструктор аудитории</span>
+        <h2 class="reveal d1">Соберите свою аудиторию</h2>
+        <p class="sub reveal d2">Нажимайте на сегменты — так мы собираем аудиторию для вашей рекламы. Чем точнее сегменты, тем дешевле заявка и меньше случайных показов.</p>
+        <div class="reveal" style="display:flex;gap:18px;align-items:center"><svg viewBox="0 0 160 170" aria-hidden="true" style="height:150px;animation:float 4s ease-in-out infinite"><ellipse cx="80" cy="162" rx="40" ry="6" fill="#000" opacity=".4"/><line x1="80" y1="38" x2="80" y2="18" stroke="#8E96A6" stroke-width="4"/><polygon class="spark" points="84,2 72,20 80,20 76,32 90,12 82,12" fill="#FFD54A"/><rect x="40" y="38" width="80" height="62" rx="22" fill="#C9CED6"/><rect x="50" y="50" width="60" height="36" rx="14" fill="#141821"/><rect class="blinker" x="60" y="60" width="12" height="14" rx="5" fill="#FFD54A"/><rect class="blinker" x="88" y="60" width="12" height="14" rx="5" fill="#FFD54A"/><rect x="50" y="104" width="60" height="46" rx="16" fill="#3A4152"/><circle cx="80" cy="126" r="11" fill="#FFD54A" opacity=".9"/><path d="M77 119 l-4 9 h6 l-3 8 9-12 h-6 l3-5z" fill="#141821"/><rect class="wing" x="26" y="108" width="20" height="10" rx="5" fill="#8E96A6"/><rect x="114" y="108" width="20" height="10" rx="5" fill="#8E96A6"/><rect x="58" y="150" width="14" height="10" rx="4" fill="#8E96A6"/><rect x="88" y="150" width="14" height="10" rx="4" fill="#8E96A6"/></svg><p style="color:var(--muted);font-size:15px;max-width:300px"><b style="color:#FFD54A">Искра</b> подбирает ключевые фразы и сообщества конкурентов, специалист проверяет и запускает тесты.</p></div>
+      </div>
+      <div class="aud reveal" id="audbox">
+        <b>Ремонт квартир · Екатеринбург</b>
+        <div class="segs">
+          <button data-k="1" class="on">Город + 30 км</button><button data-k="0.55" class="on">Возраст 27–55</button><button data-k="0.35" class="on">Искали «ремонт квартиры»</button><button data-k="0.6">Новосёлы</button><button data-k="0.45">Сообщества конкурентов</button><button data-k="0.3">Похожие на клиентов</button><button data-k="0.08">Были на сайте</button>
+        </div>
+        <div class="meter2"><div><small>Размер аудитории</small><b id="audN">0</b></div><div><small>Точность попадания</small><b id="audP">0%</b></div></div>
+        <div class="bar"><i id="audBar"></i></div>
+        <p class="hint">Демонстрация принципа: цифры условные. Реальные объёмы аудитории показывает рекламный кабинет VK после настройки.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="calc">
+    <div class="wrap">
+      <span class="kicker reveal">Калькулятор окупаемости</span>
+      <h2 class="reveal d1">Посчитайте на своих цифрах</h2>
+      <p class="sub reveal d2">Подставьте свои цифры: бюджет на VK Рекламу, цену заявки из лид-формы, долю заявок, которые становятся сделками, и средний чек.</p>
+      <div id="roi" class="reveal">
+        <div>
+          <div class="sl"><label><span>Рекламный бюджет в месяц</span><b id="rbv"></b></label><input type="range" id="rb" min="20000" max="500000" step="5000" value="60000"></div>
+          <div class="sl"><label><span>Цена одной заявки</span><b id="rcv"></b></label><input type="range" id="rc" min="200" max="5000" step="50" value="600"></div>
+          <div class="sl"><label><span>Сколько заявок становятся сделками</span><b id="rvv"></b></label><input type="range" id="rv" min="2" max="50" step="1" value="15"></div>
+          <div class="sl"><label><span>Средний чек сделки</span><b id="rkv"></b></label><input type="range" id="rk" min="10000" max="1000000" step="5000" value="120000"></div>
+        </div>
+        <div class="outs">
+          <div><small>Заявок в месяц</small><b id="o1">0</b></div>
+          <div><small>Сделок в месяц</small><b id="o2">0</b></div>
+          <div class="wide"><small>Выручка от рекламы</small><b id="o3">0 ₽</b></div>
+          <div class="wide"><small>Стоимость одной сделки</small><b id="o4">—</b></div>
+          <p class="disclaim">Это расчёт на ваших собственных цифрах, а не обещание результата. Реальную цену заявки в вашей нише покажем после аудита.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Рекламный бюджет вы оплачиваете площадке напрямую — он не смешивается с оплатой наших услуг. Точную смету фиксируем после бесплатного аудита.</p>
+      <div class="pricebox">
+        <div class="plan reveal"><h3>НАСТРОЙКА</h3><div class="price">от 15 000 ₽</div><div class="setup">разово</div><ul><li>Анализ ниши и аудиторий</li><li>Оформление сообщества</li><li>Лид-формы и пиксель на сайт</li><li>5–10 креативов на тест</li><li>Запуск за 5–7 рабочих дней</li></ul><a class="btn ghost" href="#audit">Начать с аудита</a></div>
+        <div class="plan best reveal d1"><span class="badge">Основное</span><h3>ВЕДЕНИЕ</h3><div class="price">от 25 000 ₽<small> / мес</small></div><div class="setup">ежемесячно</div><ul><li>Ежедневный контроль кампаний</li><li>Новые креативы каждые 2 недели</li><li>Тесты аудиторий и офферов</li><li>Маркировка и отчёты в ОРД</li><li>Отчёт с ценой заявки каждую неделю</li></ul><a class="btn" href="#audit">Подключить ведение</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Подходит ли VK для моего бизнеса?</button><div class="faq-a"><div><p>VK хорошо работает там, где покупку можно «подсказать»: ремонт, мебель, услуги, обучение, события, товары. Если клиенты ищут вас только в момент поломки — сначала Директ. Определим на аудите.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Вы гарантируете заявки?</button><div class="faq-a"><div><p>Нет: результат зависит от ниши, оффера и бюджета. Гарантируем объём работ по договору, прозрачную аналитику и еженедельный отчёт с ценой заявки.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Нужен ли сайт для VK Рекламы?</button><div class="faq-a"><div><p>Не обязательно — заявки можно собирать через лид-формы и сообщения сообщества. Но с сайтом и пикселем работает ретаргетинг, и реклама обычно дешевле.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Кто занимается маркировкой?</button><div class="faq-a"><div><p>Мы: регистрируем креативы, получаем токены ERID и передаём отчёты в ОРД. Рекламный кабинет оформляется на вас.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Какой нужен бюджет?</button><div class="faq-a"><div><p>Для теста — от 30 000 ₽ на рекламу в месяц. Бюджет вы оплачиваете VK напрямую, он не смешивается с оплатой наших услуг.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Бесплатный аудит вашей рекламы в VK</h2>
+        <p class="sub" style="margin-bottom:0">Пришлите ссылку на сообщество или сайт — за 48 часов в рабочие дни покажем, каких клиентов и как можно привлечь через VK.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="VK Реклама">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Директ</a> · <a href="avito.html">Авито</a> · <a href="sites.html">Сайты</a> · <a href="crm.html">CRM</a> · <a href="vk.html">VK</a> · <a href="seo.html">SEO</a> · <a href="consulting.html">Консалтинг</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM, nf = KV.nf;
+
+/* лид-форма */
+const lf = document.getElementById('lf'), f1 = document.getElementById('lf1'), f2 = document.getElementById('lf2'), ok = document.getElementById('lfok');
+function typ(el, s, d){ return new Promise(r => { let i = 0; el.innerHTML = '<i></i>'; const iv = setInterval(() => { el.innerHTML = s.slice(0, ++i) + '<i></i>'; if (i >= s.length){ clearInterval(iv); el.innerHTML = s; r(); } }, RM ? 0 : d); }); }
+async function cycle(){ ok.classList.remove('on'); f1.textContent = ''; f2.textContent = ''; lf.classList.remove('show');
+  await new Promise(r => setTimeout(r, 1400)); lf.classList.add('show'); await new Promise(r => setTimeout(r, 900));
+  await typ(f1, 'Анна', 90); await typ(f2, '+7 912 ••• •• 45', 60); await new Promise(r => setTimeout(r, 500)); ok.classList.add('on'); }
+cycle(); if (!RM) setInterval(cycle, 8000);
+/* конструктор аудитории */
+const bts = [...document.querySelectorAll('#audbox .segs button')], N = document.getElementById('audN'), P = document.getElementById('audP'), bar = document.getElementById('audBar');
+let shown = 0;
+function upd(){ let size = 1200000, acc = 8; bts.forEach((b, i) => { if (b.classList.contains('on') && i){ size *= +b.dataset.k; acc += Math.round((1 - b.dataset.k) * 30); } });
+  acc = Math.min(96, acc); const from = shown, to = Math.round(size), t0 = performance.now(); shown = to;
+  (function s(t){ const k = Math.min(1, (t - t0) / 600); N.textContent = nf(from + (to - from) * k); if (k < 1) requestAnimationFrame(s); })(t0);
+  P.textContent = acc + '%'; bar.style.width = acc + '%'; }
+bts.forEach((b, i) => b.addEventListener('click', () => { if (i) { b.classList.toggle('on'); upd(); } }));
+upd();
+
+})();
+</script>
+</body>
+</html>

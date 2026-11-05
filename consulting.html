@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Консалтинг по маркетингу и продажам — Корвилид</title>
+<meta name="description" content="Аудит маркетинга и продаж, стратегия роста, построение отдела продаж и управленческой отчётности для малого и среднего бизнеса. Находим, где теряются заявки и деньги.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/korvilid.css">
+<!-- Яндекс Метрика: вставьте сюда код счётчика -->
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="Корвилид — на главную"><svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+<g class="head"><polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/><polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/><polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/><polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/><circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/></g></svg><b>KORVILID</b></a>
+    <nav>
+      <a href="direct.html">Директ</a>
+      <a href="avito.html">Авито</a>
+      <a href="vk.html">VK</a>
+      <a href="seo.html">SEO</a>
+      <a href="sites.html">Сайты</a>
+      <a href="crm.html">CRM и ИИ</a>
+      <a href="consulting.html">Консалтинг</a>
+      <a href="index.html#prices">Тарифы</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <div>
+        <div class="crumbs"><a href="index.html">Главная</a> / Консалтинг</div>
+        <span class="eyebrow"><i class="dot"></i>Корвилид Консалтинг</span>
+        <h1>Найдём, где ваш бизнес <span class="grad">теряет деньги</span> между кликом и сделкой</h1>
+        <p class="lead">Разбираем всю цепочку: реклама → заявка → ответ менеджера → встреча → сделка. Показываем, на каком шаге утекают клиенты, и вместе строим план, как это исправить.</p>
+        <div class="actions"><a class="btn" href="#audit">Записаться на разбор →</a><a class="btn ghost" href="#leak">Найти утечку</a></div>
+        <div class="pills"><span>Аудит воронки</span><span>Стратегия</span><span>Отдел продаж</span><span>Скрипты</span><span>Отчётность</span><span>Юнит-экономика</span></div>
+      </div>
+      <div class="fun reveal" id="fun" aria-label="Демонстрация: воронка с утечками">
+        <div class="st" style="width:100%;background:#6E9BFF">Клики<small>1 000</small><span class="leak"></span></div>
+        <div class="st" style="width:84%;background:#3DE0FF">Заявки<small id="fv1">50</small><span class="leak" style="animation-delay:.3s"></span></div>
+        <div class="st" style="width:66%;background:#33D69F">Ответили за 5 мин<small id="fv2">20</small><span class="leak" style="animation-delay:.6s"></span></div>
+        <div class="st" style="width:50%;background:#FFD54A">Встречи<small id="fv3">8</small><span class="leak" style="animation-delay:.9s"></span></div>
+        <div class="st" style="width:36%;background:#FFB547">Сделки<small id="fv4">3</small></div>
+        <div class="tag3" id="ftag">Утечки на каждом шаге</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="leak">
+    <div class="wrap">
+      <span class="kicker reveal">Калькулятор утечек</span>
+      <h2 class="reveal d1">Где теряются ваши клиенты?</h2>
+      <p class="sub reveal d2">Подвиньте ползунки под свои цифры — покажем самое слабое место воронки и сколько денег оно стоит.</p>
+      <div class="leakcalc reveal">
+        <div id="lk">
+          <div class="sl"><label><span>Заявок в месяц</span><b id="l1v"></b></label><input type="range" id="l1" min="10" max="500" step="5" value="100"></div>
+          <div class="sl"><label><span>Ответили быстро, %</span><b id="l2v"></b></label><input type="range" id="l2" min="10" max="100" step="5" value="55"></div>
+          <div class="sl"><label><span>Дошли до встречи/замера, %</span><b id="l3v"></b></label><input type="range" id="l3" min="5" max="100" step="5" value="40"></div>
+          <div class="sl"><label><span>Купили после встречи, %</span><b id="l4v"></b></label><input type="range" id="l4" min="5" max="100" step="5" value="35"></div>
+          <div class="sl"><label><span>Средний чек</span><b id="l5v"></b></label><input type="range" id="l5" min="5000" max="1000000" step="5000" value="150000"></div>
+        </div>
+        <div class="lres" id="lres"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Форматы работы</span>
+      <h2 class="reveal d1">Выберите формат</h2>
+      <p class="sub reveal d2">Можно начать с разового аудита и решить, нужно ли сопровождение.</p>
+      <div class="incl fmt"><div class="card reveal"><div class="n">01</div><h3>Аудит маркетинга и продаж</h3><p>Разбираем рекламу, сайт, обработку заявок и продажи. Через 5–7 дней — отчёт с проблемами и планом на 90 дней.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Стратегическая сессия</h3><p>3–4 часа с собственником: цели, юнит-экономика, каналы и приоритеты. На выходе — понятная стратегия роста.</p></div><div class="card reveal d2"><div class="n">03</div><h3>Маркетолог на аутсорсе</h3><p>Берём управление маркетингом: план, подрядчики, бюджеты и еженедельная отчётность по заявкам и продажам.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Что разбираем</span>
+      <h2 class="reveal d1">Смотрим на бизнес целиком</h2>
+      <p class="sub reveal d2">Реклама редко бывает единственной проблемой. Чаще заявки теряются после неё.</p>
+      <div class="incl"><div class="card reveal"><div class="n">01</div><h3>Юнит-экономика</h3><p>Сколько стоит клиент, сколько он приносит и где проходит граница окупаемости.</p></div><div class="card reveal d1"><div class="n">02</div><h3>Каналы и бюджеты</h3><p>Какие каналы приносят продажи, а какие — только клики.</p></div><div class="card reveal d2"><div class="n">03</div><h3>Сайт и оффер</h3><p>Понятно ли, почему клиенту стоит выбрать вас, и легко ли оставить заявку.</p></div><div class="card reveal d3"><div class="n">04</div><h3>Скорость ответа</h3><p>Тайный покупатель: как быстро и как хорошо отвечают на заявку.</p></div><div class="card reveal"><div class="n">05</div><h3>Отдел продаж</h3><p>Скрипты, этапы, мотивация, контроль. Где сделки «зависают».</p></div><div class="card reveal d1"><div class="n">06</div><h3>CRM и отчётность</h3><p>Видит ли собственник цифры каждый день — или узнаёт о проблемах в конце месяца.</p></div><div class="card reveal d2"><div class="n">07</div><h3>Повторные продажи</h3><p>Отзывы, рекомендации и работа с базой — самые дешёвые клиенты.</p></div><div class="card reveal d3"><div class="n">08</div><h3>План на 90 дней</h3><p>Конкретные шаги, ответственные и цифры, по которым проверяем результат.</p></div></div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <span class="kicker reveal">Стоимость</span>
+      <h2 class="reveal d1">Сколько это стоит</h2>
+      <p class="sub reveal d2">Цены — ориентир. Точную смету с объёмом работ и сроками фиксируем в договоре после бесплатного аудита.</p>
+      <div class="plans3"><div class="plan best reveal"><span class="badge">Быстрый старт</span><h3>АУДИТ</h3><div class="price">от 15 000 ₽</div><div class="setup">разово, 5–7 дней</div><ul><li>Разбор рекламы и сайта</li><li>Тайный покупатель</li><li>Анализ воронки продаж</li><li>Отчёт и план на 90 дней</li></ul><a class="btn" href="#audit">Обсудить</a></div><div class="plan reveal d1"><h3>СТРАТСЕССИЯ</h3><div class="price">от 30 000 ₽</div><div class="setup">разово, 1 день</div><ul><li>Подготовка и анализ цифр</li><li>Сессия с собственником 3–4 ч</li><li>Стратегия и приоритеты</li><li>Разбор через 30 дней</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div><div class="plan reveal d2"><h3>СОПРОВОЖДЕНИЕ</h3><div class="price">от 60 000 ₽</div><div class="setup">в месяц</div><ul><li>Маркетолог на аутсорсе</li><li>Управление подрядчиками</li><li>Еженедельная отчётность</li><li>Скрипты и обучение продажам</li></ul><a class="btn ghost" href="#audit">Обсудить</a></div></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <span class="kicker reveal">Вопросы</span>
+      <h2 class="reveal d1">Частые вопросы</h2>
+      <div class="faq" style="margin-top:36px"><div class="faq-i reveal"><button class="faq-q">Чем консалтинг отличается от ведения рекламы?</button><div class="faq-a"><div><p>Ведение — это работа с конкретным каналом. Консалтинг — взгляд на весь путь клиента: от рекламы до оплаты. Часто самые большие потери не в рекламе, а в обработке заявок.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Вы гарантируете рост продаж?</button><div class="faq-a"><div><p>Нет: рост зависит от того, как команда внедрит изменения. Мы гарантируем глубину разбора, конкретный план и помощь с внедрением в формате сопровождения.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Нужно ли давать доступы?</button><div class="faq-a"><div><p>Для аудита — доступ на просмотр к рекламным кабинетам, Метрике и CRM. Подписываем соглашение о конфиденциальности.</p></div></div></div>
+<div class="faq-i reveal"><button class="faq-q">Работаете ли вы с маленьким бизнесом?</button><div class="faq-a"><div><p>Да, основные клиенты — малый и средний бизнес с оборотом от 1 млн ₽ в месяц. Для небольших компаний чаще всего хватает аудита и плана.</p></div></div></div></div>
+    </div>
+  </section>
+
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Бесплатный экспресс-разбор</h2>
+        <p class="sub" style="margin-bottom:0">Оставьте контакты — за 30 минут созвона найдём 2–3 самые дорогие утечки в вашей воронке.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>План исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на объявления<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <input type="hidden" name="service" value="Консалтинг">
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="index.html">Главная</a> · <a href="direct.html">Директ</a> · <a href="avito.html">Авито</a> · <a href="sites.html">Сайты</a> · <a href="crm.html">CRM</a> · <a href="vk.html">VK</a> · <a href="seo.html">SEO</a> · <a href="consulting.html">Консалтинг</a><br><a href="politika.html">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+<script src="assets/korvilid.js"></script>
+<script>
+(() => {
+const RM = KV.RM, nf = KV.nf;
+
+/* калькулятор утечек */
+const ids = ['l1','l2','l3','l4','l5'], el = id => document.getElementById(id), lres = el('lres');
+const fmt = v => nf(v);
+function calc(){ const L = +el('l1').value, a = +el('l2').value/100, m = +el('l3').value/100, d = +el('l4').value/100, K = +el('l5').value;
+  el('l1v').textContent = L; el('l2v').textContent = Math.round(a*100)+'%'; el('l3v').textContent = Math.round(m*100)+'%'; el('l4v').textContent = Math.round(d*100)+'%'; el('l5v').textContent = fmt(K)+' ₽';
+  const deals = L*a*m*d, rev = deals*K;
+  const st = [['Быстрый ответ', a, .8], ['Встреча/замер', m, .6], ['Продажа', d, .45]];
+  const gain = st.map(([n, v, bench]) => { const nv = Math.max(v, bench); const k = nv / v; return [n, v, bench, deals*k - deals]; });
+  const worst = gain.reduce((x, y) => y[3] > x[3] ? y : x);
+  lres.innerHTML = st.map(([n, v, bench]) => `<div class="lr ${worst[0] === n && worst[3] > 0.05 ? 'worst' : ''}"><span>${n}</span><span class="bb"><i style="width:${v*100}%;background:${v >= bench ? '#33D69F' : (worst[0] === n ? '#FF6B6B' : '#FFB547')}"></i></span><span>${Math.round(v*100)}%</span></div>`).join('') +
+    `<div class="lr"><span>Сделок в месяц</span><b style="grid-column:span 2">${deals.toFixed(1)} · ${fmt(rev)} ₽</b></div>` +
+    (worst[3] > 0.05 ? `<div class="verdict">Самое слабое место — <b>«${worst[0]}»</b>. Если подтянуть его до ориентира ${Math.round(worst[2]*100)}%, это примерно <b>+${worst[3].toFixed(1)} сделок</b> и <b>+${fmt(worst[3]*K)} ₽</b> в месяц при тех же затратах на рекламу.</div>` : `<div class="verdict">Воронка выглядит здоровой — следующий рычаг роста скорее в количестве заявок и среднем чеке.</div>`) +
+    `<p style="font-size:12px;color:var(--muted)">Ориентиры условные и зависят от ниши — точные цифры считаем на аудите.</p>`; }
+ids.forEach(i => { const r = el(i); const f = () => r.style.setProperty('--p', (r.value - r.min) / (r.max - r.min) * 100 + '%'); r.addEventListener('input', () => { f(); calc(); }); f(); }); calc();
+/* воронка: утечки закрываются */
+const fun = el('fun'), tag = el('ftag'), base = [50,20,8,3], fixed = [50,38,19,8];
+function setV(arr){ arr.forEach((v, i) => el('fv'+(i+1)).textContent = v); }
+function cyc(){ fun.classList.remove('fixed'); setV(base); tag.textContent = 'Утечки на каждом шаге: 3 сделки'; tag.style.color = '#FF6B6B';
+  setTimeout(() => { fun.classList.add('fixed'); setV(fixed); tag.textContent = 'После исправлений: 8 сделок из того же бюджета'; tag.style.color = '#33D69F'; }, 3500); }
+cyc(); if (!RM) setInterval(cyc, 7500);
+
+})();
+</script>
+</body>
+</html>
