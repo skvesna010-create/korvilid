@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Корвилид — от клика до сделки. Реклама, сайты, CRM и ИИ для бизнеса</title>
+<meta name="description" content="Корвилид приводит клиентов из Яндекс Директа и Авито и строит систему, где ни одна заявка не теряется: сайты, CRM, автоматизация и ИИ. Бесплатный аудит рекламы за 48 часов.">
+<meta name="theme-color" content="#07080B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111318'/%3E%3Cpath d='M12 42 L26 20 L40 22 L50 28 L47 34 L38 46 L22 46Z' fill='%23C9CED6'/%3E%3Cpath d='M50 28 L62 31 L48 34Z' fill='%23ffffff'/%3E%3Ccircle cx='38' cy='28' r='3' fill='%232F6BFF'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#07080B; --bg2:#0D0F14; --card:#12151C; --card2:#171B24; --line:#232836; --line2:#2E3445;
+  --text:#EEF0F4; --muted:#98A0AE; --silver:#C9CED6; --accent:#2F6BFF; --accent2:#6E9BFF; --cyan:#3DE0FF; --green:#33D69F; --amber:#FFB547; --pink:#FF5C8A;
+  --font:"Manrope","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative}
+#bgcanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(47,107,255,.16),transparent);transform:translate(-50%,-50%);transition:opacity .3s}
+main,header,footer{position:relative;z-index:1}
+
+/* ---------- header & logo ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(7,8,11,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo b{letter-spacing:.22em;font-weight:800;font-size:18px;background:linear-gradient(90deg,#fff,#C9CED6 40%,#6E9BFF 50%,#C9CED6 60%,#fff);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{from{background-position:100% 0}to{background-position:-150% 0}}
+.raven{width:44px;height:44px;overflow:visible}
+.raven .shard{transform-box:fill-box;transform-origin:center;animation:assemble 1.4s cubic-bezier(.2,.9,.2,1) both}
+.raven .s1{--dx:-40px;--dy:-30px;--r:-90deg;animation-delay:.05s}
+.raven .s2{--dx:30px;--dy:-40px;--r:120deg;animation-delay:.15s}
+.raven .s3{--dx:50px;--dy:10px;--r:200deg;animation-delay:.25s}
+.raven .s4{--dx:-30px;--dy:40px;--r:-150deg;animation-delay:.35s}
+@keyframes assemble{from{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(.2);opacity:0}to{transform:none;opacity:1}}
+.raven .head{transform-origin:30px 40px;animation:tilt 7s ease-in-out 2s infinite}
+@keyframes tilt{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-8deg)}90%{transform:rotate(4deg)}95%{transform:rotate(-2deg)}}
+.raven .eye{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite 1.6s}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.raven .eyeglow{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35;r:6}50%{opacity:.9;r:9}}
+.nav nav{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.nav nav a{text-decoration:none;position:relative}
+.nav nav a:after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);transition:width .3s}
+.nav nav a:hover{color:var(--text)} .nav nav a:hover:after{width:100%}
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#2F6BFF,#5B4BFF);color:#fff;border:0;border-radius:14px;padding:15px 24px;font:700 16px var(--font);text-decoration:none;cursor:pointer;overflow:hidden;box-shadow:0 10px 30px -10px rgba(47,107,255,.7);transition:transform .2s,box-shadow .2s}
+.btn:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn:hover:before{transform:translateX(120%)}
+.btn:hover{box-shadow:0 14px 40px -10px rgba(47,107,255,.95)}
+.btn.ghost{background:rgba(255,255,255,.03);border:1px solid var(--line2);box-shadow:none}
+.nav .btn{padding:11px 18px;font-size:15px}
+
+/* ---------- hero ---------- */
+.hero{padding:70px 0 40px;min-height:min(calc(100vh - 70px),860px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:30px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);border:1px solid var(--line2);border-radius:999px;padding:7px 14px;margin-bottom:26px;background:rgba(255,255,255,.02)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(51,214,159,.7);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(51,214,159,0)}100%{box-shadow:0 0 0 0 rgba(51,214,159,0)}}
+h1{font-size:clamp(42px,6.6vw,84px);line-height:1.02;font-weight:800;letter-spacing:-.035em}
+h1 .grad{background:linear-gradient(90deg,#6E9BFF,#3DE0FF,#A98BFF,#6E9BFF);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+.rot{display:block;height:1.3em;overflow:hidden;font-size:clamp(20px,2.4vw,26px);font-weight:700;color:var(--silver);margin-top:18px}
+.rot span{display:block;animation:roll 12s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes roll{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-1.3em)}50%,70%{transform:translateY(-2.6em)}75%,95%{transform:translateY(-3.9em)}100%{transform:translateY(-5.2em)}}
+.rot i{display:block;height:1.3em;font-style:normal}
+.lead{font-size:clamp(17px,1.8vw,20px);color:var(--muted);max-width:600px;margin:18px 0 34px}
+.actions{display:flex;flex-wrap:wrap;gap:14px}
+.machine{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(47,107,255,.15))}
+.machine text{font-family:var(--font)}
+.gear{transform-box:fill-box;transform-origin:center}
+.g-cw{animation:spin 9s linear infinite}
+.g-ccw{animation:spin 6s linear infinite reverse}
+.g-fast{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flowline{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.core{animation:corepulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes corepulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:1}}
+.scanline{animation:scan 3s linear infinite}
+@keyframes scan{from{transform:translateY(-60px)}to{transform:translateY(60px)}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:rgba(255,255,255,.015)}
+.track{display:flex;gap:48px;width:max-content;animation:marq 30s linear infinite;font-weight:700;color:var(--silver);font-size:18px;letter-spacing:.04em}
+.track span{display:flex;align-items:center;gap:48px;white-space:nowrap}
+.track span:after{content:"✦";color:var(--accent)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:110px 0}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin-bottom:14px;display:block}
+h2{font-size:clamp(32px,4.6vw,56px);line-height:1.06;font-weight:800;letter-spacing:-.03em;margin-bottom:18px}
+.sub{color:var(--muted);max-width:680px;margin-bottom:54px;font-size:18px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ---------- app (Korvilid OS) ---------- */
+.app{border:1px solid var(--line2);border-radius:22px;background:linear-gradient(180deg,#10131A,#0B0D12);box-shadow:0 60px 120px -40px rgba(47,107,255,.35),0 0 0 1px rgba(255,255,255,.02) inset;overflow:hidden;transform:perspective(1600px) rotateX(8deg);transform-origin:top center;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.app.in{transform:perspective(1600px) rotateX(0)}
+.bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.bar i{width:11px;height:11px;border-radius:50%;background:#FF5F57}.bar i:nth-child(2){background:#FEBC2E}.bar i:nth-child(3){background:#28C840}
+.bar .t{margin-left:10px;font-weight:700;color:var(--silver)}
+.bar .demo{margin-left:auto;border:1px solid var(--line2);border-radius:999px;padding:3px 10px;font-size:12px}
+.appbody{display:grid;grid-template-columns:190px 1fr 290px;min-height:560px}
+.side{border-right:1px solid var(--line);padding:18px 12px;display:grid;align-content:start;gap:4px;font-size:14px;color:var(--muted)}
+.side div{padding:9px 12px;border-radius:10px;display:flex;gap:10px;align-items:center}
+.side div.on{background:rgba(47,107,255,.14);color:#fff}
+.side svg{width:16px;height:16px;flex:0 0 16px}
+.mainp{padding:20px;display:grid;gap:16px;align-content:start}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi small{color:var(--muted);font-size:12px;display:block}
+.kpi b{font-size:22px;white-space:nowrap;display:block;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi em{font-style:normal;font-size:12px;color:var(--green)}
+.chartbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 6px}
+.chartbox .h{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+.chartbox .h b{color:var(--text)}
+.legend{display:flex;gap:14px}.legend span{display:flex;align-items:center;gap:6px}.legend span:before{content:"";width:10px;height:3px;border-radius:2px;background:var(--c)}
+#chart{width:100%;height:170px;display:block}
+.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;min-height:190px}
+.col h4{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between}
+.col h4 span{background:var(--card2);border-radius:6px;padding:0 6px}
+.lc{background:var(--card2);border:1px solid var(--line2);border-radius:10px;padding:8px 9px;margin-bottom:7px;font-size:12px;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.lc b{display:block;font-size:12.5px;color:var(--text)}
+.lc span{color:var(--muted)}
+.lc .src{display:inline-block;font-size:10.5px;border-radius:5px;padding:1px 6px;margin-top:5px;font-weight:700}
+.src.d{background:rgba(255,204,0,.14);color:#FFD54A}.src.a{background:rgba(61,224,255,.12);color:var(--cyan)}.src.v{background:rgba(110,155,255,.15);color:var(--accent2)}.src.k{background:rgba(51,214,159,.13);color:var(--green)}
+.lc.new{animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.ai{border-left:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px}
+.ai h5{font-size:14px;display:flex;align-items:center;gap:10px}
+.ai h5 svg{width:30px;height:30px}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:11px 12px;font-size:13px;color:#D6DAE2;min-height:20px}
+.msg.me{border-radius:14px 14px 4px 14px;background:rgba(47,107,255,.15);border-color:rgba(47,107,255,.3);align-self:flex-end;max-width:85%}
+.caret{display:inline-block;width:7px;height:14px;background:var(--accent2);vertical-align:-2px;animation:blink2 1s steps(1) infinite}
+@keyframes blink2{50%{opacity:0}}
+.toast{position:absolute;right:18px;bottom:18px;background:#141A26;border:1px solid var(--line2);border-left:3px solid var(--green);border-radius:12px;padding:10px 14px;font-size:13px;box-shadow:0 20px 40px -10px rgba(0,0,0,.6);transform:translateY(20px);opacity:0;transition:all .5s cubic-bezier(.2,.9,.2,1);pointer-events:none;max-width:260px}
+.toast.show{transform:none;opacity:1}
+.toast b{display:block}
+.appwrap{position:relative}
+.demo-note{color:var(--muted);font-size:13.5px;margin-top:16px;text-align:center}
+
+/* ---------- heroes ---------- */
+.heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.hcard{position:relative;background:linear-gradient(180deg,var(--card),#0D1016);border:1px solid var(--line);border-radius:22px;padding:24px 22px 26px;transform-style:preserve-3d;transition:transform .2s ease-out,border-color .3s;overflow:hidden}
+.hcard:hover{border-color:var(--line2)}
+.hcard:before{content:"";position:absolute;inset:-1px;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(110,155,255,.18),transparent 40%);pointer-events:none}
+.avatar{height:170px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;transform:translateZ(40px)}
+.avatar svg{height:160px;width:auto;overflow:visible;animation:float 4s ease-in-out infinite}
+.hcard:nth-child(2) .avatar svg{animation-delay:-1s}.hcard:nth-child(3) .avatar svg{animation-delay:-2s}.hcard:nth-child(4) .avatar svg{animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hcard .role{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--c);font-weight:800}
+.hcard h3{font-size:26px;margin:4px 0 8px}
+.hcard p{color:var(--muted);font-size:15px}
+.power{margin-top:14px;font-size:13px;border-top:1px solid var(--line);padding-top:12px;color:var(--silver)}
+.power b{color:var(--c)}
+.blinker{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+.spark{animation:sparkle 1.2s ease-in-out infinite}
+@keyframes sparkle{50%{opacity:.2}}
+.wing{transform-box:fill-box;transform-origin:20% 20%;animation:flap 3s ease-in-out infinite}
+@keyframes flap{0%,70%,100%{transform:rotate(0)}80%{transform:rotate(-14deg)}90%{transform:rotate(6deg)}}
+
+/* ---------- services ---------- */
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.s{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;overflow:hidden;transition:transform .4s,border-color .4s}
+.s:hover{transform:translateY(-6px);border-color:var(--line2)}
+.s .ic{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(47,107,255,.12);margin-bottom:18px}
+.s .ic svg{width:30px;height:30px}
+.s:hover .ic svg{animation:wobble .8s}
+@keyframes wobble{25%{transform:rotate(-12deg) scale(1.1)}60%{transform:rotate(8deg)}}
+.s h3{font-size:24px;margin-bottom:10px}
+.s p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:13px;border:1px solid var(--line2);border-radius:999px;padding:5px 11px;color:var(--silver)}
+.s .big{position:absolute;right:-10px;bottom:-30px;font-size:150px;font-weight:800;color:rgba(255,255,255,.025);line-height:1}
+
+/* ---------- pipeline ---------- */
+.pipe{position:relative}
+#pipesvg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.stage{background:rgba(18,21,28,.85);border:1px solid var(--line);border-radius:20px;padding:26px;backdrop-filter:blur(4px)}
+.stage .n{font-size:13px;font-weight:800;color:var(--accent2);letter-spacing:.14em}
+.stage h3{font-size:21px;margin:10px 0 8px}
+.stage p{color:var(--muted);font-size:15px}
+.stage.lit{border-color:rgba(47,107,255,.6);box-shadow:0 0 0 1px rgba(47,107,255,.3),0 20px 50px -20px rgba(47,107,255,.6)}
+.note{margin-top:30px;color:var(--muted);font-size:14.5px;border:1px dashed var(--line2);border-radius:12px;padding:14px 18px;text-align:center}
+
+/* ---------- form ---------- */
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+form{position:relative;background:linear-gradient(180deg,var(--card),#0E1117);border:1px solid var(--line2);border-radius:24px;padding:34px;display:grid;gap:14px}
+form:before{content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;background:linear-gradient(135deg,rgba(47,107,255,.7),transparent 40%,transparent 60%,rgba(61,224,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+label{font-size:14px;color:var(--muted);display:grid;gap:6px}
+input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:12px;color:var(--text);padding:14px;font:16px var(--font);transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(47,107,255,.18)}
+textarea{min-height:90px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.check input{width:18px;height:18px;margin-top:2px;flex:0 0 18px;accent-color:var(--accent)}
+.hp{position:absolute;left:-9999px}
+.fmsg{display:none;padding:14px;border-radius:12px;font-size:15px}
+.fmsg.ok{display:block;background:rgba(51,214,159,.12);border:1px solid rgba(51,214,159,.5)}
+.fmsg.err{display:block;background:rgba(255,92,138,.1);border:1px solid rgba(255,92,138,.45)}
+.benefits{display:grid;gap:14px;margin-top:26px}
+.benefits div{display:flex;gap:14px;color:var(--silver);align-items:center}
+.benefits b{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:rgba(47,107,255,.14);display:flex;align-items:center;justify-content:center;color:var(--accent2)}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+footer a{color:var(--silver)}
+
+
+/* ---------- flying Korvi ---------- */
+#flyer{position:fixed;left:0;top:0;width:220px;z-index:100;pointer-events:none;will-change:transform;display:none}
+#flyer .wf{transform-box:fill-box;transform-origin:50% 100%;animation:flapW .32s ease-in-out infinite}
+#flyer .wb{transform-box:fill-box;transform-origin:50% 100%;animation:flapW .32s ease-in-out infinite reverse}
+@keyframes flapW{0%,100%{transform:scaleY(1)}50%{transform:scaleY(-.55)}}
+.trail{position:fixed;width:6px;height:6px;border-radius:50%;background:#6E9BFF;box-shadow:0 0 12px #6E9BFF;pointer-events:none;z-index:99;animation:trail .8s ease-out forwards}
+@keyframes trail{to{opacity:0;transform:scale(.2) translateY(14px)}}
+.logo.land .raven{animation:landing .9s cubic-bezier(.2,1.5,.4,1)}
+.logo.land:before{content:"";position:absolute;width:44px;height:44px;border-radius:50%;border:2px solid #6E9BFF;animation:ring 1s ease-out forwards}
+.logo{position:relative}
+@keyframes landing{0%{transform:scale(1.5)}100%{transform:scale(1)}}
+@keyframes ring{from{transform:scale(.6);opacity:1}to{transform:scale(2.6);opacity:0}}
+
+/* ---------- guide ---------- */
+#guide{position:fixed;left:20px;bottom:20px;z-index:60;display:flex;align-items:flex-end;gap:10px;opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+#guide.on{opacity:1;transform:none}
+#guide .ava{width:62px;height:62px;flex:0 0 62px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#1E2433,#0D1016);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 30px -8px rgba(47,107,255,.6);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+#guide .ava svg{width:46px;height:46px}
+#guide .bub{position:relative;max-width:280px;background:#141A26;border:1px solid var(--line2);border-radius:16px 16px 16px 4px;padding:12px 30px 12px 14px;font-size:14px;color:#DDE1E8;box-shadow:0 20px 40px -12px rgba(0,0,0,.7);transition:opacity .3s,transform .3s}
+#guide .bub.swap{opacity:0;transform:translateY(6px)}
+#guide .bub b{color:var(--accent2)}
+#guide .x{position:absolute;right:8px;top:6px;background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;line-height:1}
+#guide.min .bub{display:none}
+
+/* ---------- prices ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{position:relative;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px;display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
+.plan:hover{transform:translateY(-8px);border-color:var(--line2)}
+.plan.best{background:linear-gradient(180deg,#141B2E,#0F1320);border-color:rgba(47,107,255,.6);box-shadow:0 30px 80px -30px rgba(47,107,255,.6)}
+.plan .badge{position:absolute;top:-12px;left:30px;background:linear-gradient(135deg,#2F6BFF,#5B4BFF);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+.plan h3{font-size:15px;letter-spacing:.18em;color:var(--silver)}
+.plan .price{font-size:40px;font-weight:800;margin:14px 0 2px;letter-spacing:-.02em}
+.plan .price small{font-size:16px;color:var(--muted);font-weight:600}
+.plan .setup{color:var(--muted);font-size:14px;margin-bottom:18px}
+.plan ul{list-style:none;display:grid;gap:9px;margin-bottom:24px;flex:1}
+.plan li{display:flex;gap:10px;font-size:15px;color:#D3D8E0}
+.plan li:before{content:"✓";color:var(--green);font-weight:800}
+.plan .who{font-size:14px;color:var(--muted);margin-bottom:16px}
+.calc{margin-top:40px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;background:linear-gradient(180deg,var(--card),#0D1016);border:1px solid var(--line2);border-radius:26px;padding:32px}
+.calc h3{font-size:24px;margin-bottom:6px}
+.calc .hint{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{position:relative;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line2);border-radius:14px;padding:13px 14px;cursor:pointer;transition:all .25s;background:rgba(255,255,255,.015);user-select:none}
+.opt input{position:absolute;opacity:0}
+.opt .box{width:22px;height:22px;flex:0 0 22px;border-radius:7px;border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;transition:all .25s;margin-top:1px}
+.opt .box:after{content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) scale(0);transition:transform .25s cubic-bezier(.2,1.6,.4,1);margin-top:-3px}
+.opt b{display:block;font-size:15px}
+.opt span{font-size:12.5px;color:var(--muted)}
+.opt.on{border-color:rgba(47,107,255,.7);background:rgba(47,107,255,.09)}
+.opt.on .box{background:var(--accent);border-color:var(--accent)}
+.opt.on .box:after{transform:rotate(-45deg) scale(1)}
+.budget{margin-top:20px}
+.budget label{display:flex;justify-content:space-between;color:var(--silver);font-size:14.5px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--accent) var(--p,30%),var(--line2) var(--p,30%));border:0;padding:0;margin-top:12px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(47,107,255,.35);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 5px rgba(47,107,255,.35)}
+.total{background:#0B0E14;border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.total .row2{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.total .row2 span{color:var(--muted);font-size:14px}
+.total .row2 b{font-size:30px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.total .row2 b.sm{font-size:20px;color:var(--silver)}
+.total .disc{color:var(--green);font-size:13.5px;min-height:18px}
+.total .small{color:var(--muted);font-size:12.5px}
+.bars{display:flex;gap:4px;height:46px;align-items:flex-end}
+.bars i{flex:1;background:linear-gradient(180deg,#6E9BFF,#2F6BFF);border-radius:4px 4px 0 0;transition:height .6s cubic-bezier(.2,.9,.2,1);height:4px;opacity:.85}
+@media (max-width:900px){.plans,.calc{grid-template-columns:1fr}.opts{grid-template-columns:1fr}#guide .bub{max-width:200px;font-size:13px}}
+
+@media (max-width:1050px){
+  .appbody{grid-template-columns:1fr}
+  .side,.ai{display:none}
+  .heroes{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero .wrap,.form-wrap,.svc{grid-template-columns:1fr}
+  .nav nav{display:none}
+  .stages{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kanban{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .heroes,.stages{grid-template-columns:1fr}
+  section{padding:76px 0}
+  .nav .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<!-- Яндекс Метрика: вставьте сюда код счётчика после его создания -->
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div class="glow" id="glow"></div>
+<svg id="flyer" viewBox="0 0 200 120" aria-hidden="true">
+  <polygon class="wb" points="96,54 122,52 128,8 104,18" fill="#4A5266"/>
+  <polygon points="44,64 10,52 20,66 8,80 48,72" fill="#3A4152"/>
+  <polygon points="40,64 90,48 140,52 160,58 142,70 92,76" fill="#2A2F3C"/>
+  <polygon points="92,76 142,70 128,80" fill="#1E222C"/>
+  <polygon points="140,52 164,44 178,54 160,62" fill="#C9CED6"/>
+  <polygon points="176,50 198,56 176,60" fill="#FFFFFF"/>
+  <circle cx="166" cy="51" r="6" fill="#2F6BFF" opacity=".35"/>
+  <circle cx="166" cy="51" r="3" fill="#2F6BFF"/>
+  <polygon class="wf" points="78,54 112,50 82,0 56,12" fill="#8E96A6"/>
+</svg>
+<div id="guide"><div class="ava" title="Корви" role="button" aria-label="Корви — к аудиту"><svg viewBox="0 0 64 64"><polygon points="12,42 26,20 30,34" fill="#7C8496"/><polygon points="26,20 40,22 50,28 30,34" fill="#E3E7EE"/><polygon points="50,28 62,31 48,34" fill="#fff"/><polygon points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/><circle cx="38" cy="28" r="3.2" fill="#2F6BFF"/></svg></div><div class="bub" id="bub"><button class="x" aria-label="Свернуть">×</button><span id="bubText">Привет! Я <b>Корви</b>. Покажу, как мы превращаем клики в сделки.</span></div></div>
+
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Корвилид — на главную">
+      <svg class="raven" viewBox="0 0 64 64" aria-hidden="true">
+        <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2F4F8"/><stop offset="1" stop-color="#8E96A6"/></linearGradient></defs>
+        <g class="head">
+          <polygon class="shard s1" points="12,42 26,20 30,34" fill="#7C8496"/>
+          <polygon class="shard s2" points="26,20 40,22 50,28 30,34" fill="url(#lg1)"/>
+          <polygon class="shard s3" points="50,28 62,31 48,34" fill="#FFFFFF"/>
+          <polygon class="shard s4" points="12,42 30,34 48,34 38,46 22,46" fill="#B4BBC8"/>
+          <circle class="eyeglow" cx="38" cy="28" r="7" fill="#2F6BFF" opacity=".4"/>
+          <circle class="eye" cx="38" cy="28" r="3.2" fill="#2F6BFF"/>
+        </g>
+      </svg>
+      <b>KORVILID</b>
+    </a>
+    <nav>
+      <a href="#os">Платформа</a>
+      <a href="#team">Команда</a>
+      <a href="#services">Услуги</a>
+      <a href="#prices">Тарифы</a>
+      <a href="#how">Как работаем</a>
+      <a href="#audit">Аудит</a>
+    </nav>
+    <a class="btn" href="#audit">Получить аудит</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow"><i class="dot"></i>IT- и digital-компания · вся Россия</span>
+        <h1>От клика<br><span class="grad">до сделки</span></h1>
+        <span class="rot" aria-hidden="true"><span><i>Реклама в Директе и на Авито</i><i>Сайты и квизы, которые продают</i><i>CRM, где не теряется ни одна заявка</i><i>ИИ-ассистенты и автоматизация</i><i>Реклама в Директе и на Авито</i></span></span>
+        <p class="lead">Корвилид — механизм роста для вашего бизнеса. Приводим клиентов, собираем заявки в CRM, автоматизируем обработку и показываем цену каждой сделки.</p>
+        <div class="actions">
+          <a class="btn" href="#audit">Бесплатный аудит за 48 часов →</a>
+          <a class="btn ghost" href="#os">Посмотреть платформу</a>
+        </div>
+      </div>
+
+      <!-- MACHINE -->
+      <svg class="machine" viewBox="0 0 600 500" role="img" aria-label="Схема: заявки из рекламных каналов проходят через механизм Корвилид и превращаются в сделки">
+        <defs>
+          <linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2130"/><stop offset="1" stop-color="#0E1118"/></linearGradient>
+          <linearGradient id="gearg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D5DAE3"/><stop offset="1" stop-color="#6D7586"/></linearGradient>
+          <radialGradient id="coreg"><stop offset="0" stop-color="#9FBEFF"/><stop offset=".45" stop-color="#2F6BFF"/><stop offset="1" stop-color="#2F6BFF" stop-opacity="0"/></radialGradient>
+          <path id="p1" d="M118 70 C200 70 200 210 262 232"/>
+          <path id="p2" d="M118 170 C190 170 210 230 262 244"/>
+          <path id="p3" d="M118 300 C190 300 210 262 262 258"/>
+          <path id="p4" d="M118 410 C200 410 200 286 262 270"/>
+          <path id="pout" d="M410 250 C450 250 450 140 492 140"/>
+          <path id="pout2" d="M410 250 C450 250 450 360 492 360"/>
+        </defs>
+
+        <!-- channels -->
+        <g font-size="15" font-weight="700">
+          <rect x="10" y="50" width="108" height="40" rx="12" fill="#171B24" stroke="#2E3445"/><circle cx="32" cy="70" r="7" fill="#FFD54A"/><text x="46" y="75" fill="#EEF0F4">Директ</text>
+          <rect x="10" y="150" width="108" height="40" rx="12" fill="#171B24" stroke="#2E3445"/><circle cx="32" cy="170" r="7" fill="#3DE0FF"/><text x="46" y="175" fill="#EEF0F4">Авито</text>
+          <rect x="10" y="280" width="108" height="40" rx="12" fill="#171B24" stroke="#2E3445"/><circle cx="32" cy="300" r="7" fill="#6E9BFF"/><text x="46" y="305" fill="#EEF0F4">VK</text>
+          <rect x="10" y="390" width="108" height="40" rx="12" fill="#171B24" stroke="#2E3445"/><circle cx="32" cy="410" r="7" fill="#33D69F"/><text x="46" y="415" fill="#EEF0F4">Карты</text>
+        </g>
+        <g fill="none" stroke-width="2">
+          <use href="#p1" stroke="#FFD54A" opacity=".35" class="flowline"/>
+          <use href="#p2" stroke="#3DE0FF" opacity=".35" class="flowline"/>
+          <use href="#p3" stroke="#6E9BFF" opacity=".35" class="flowline"/>
+          <use href="#p4" stroke="#33D69F" opacity=".35" class="flowline"/>
+          <use href="#pout" stroke="#6E9BFF" opacity=".5" class="flowline"/>
+          <use href="#pout2" stroke="#33D69F" opacity=".5" class="flowline"/>
+        </g>
+        <!-- lead tokens -->
+        <g id="tokens"></g>
+
+        <!-- machine body -->
+        <g>
+          <rect x="250" y="130" width="170" height="240" rx="34" fill="url(#gm)" stroke="#2E3445" stroke-width="1.5"/>
+          <rect x="250" y="130" width="170" height="240" rx="34" fill="none" stroke="#2F6BFF" stroke-opacity=".35" stroke-dasharray="4 10" class="flowline"/>
+          <g id="gears"></g>
+          <circle class="core" cx="335" cy="250" r="34" fill="url(#coreg)"/>
+          <!-- raven eye in the core -->
+          <polygon points="318,262 326,240 340,238 352,246 360,248 350,252 342,264 326,266" fill="#E8EBF1"/>
+          <polygon points="352,246 364,249 350,252" fill="#fff"/>
+          <circle cx="340" cy="246" r="2.6" fill="#2F6BFF"/>
+          <clipPath id="scr"><rect x="270" y="150" width="130" height="200" rx="20"/></clipPath>
+          <rect class="scanline" clip-path="url(#scr)" x="262" y="245" width="146" height="10" fill="#3DE0FF" opacity=".08"/>
+          <text x="335" y="152" text-anchor="middle" fill="#98A0AE" font-size="11" letter-spacing="2">KORVILID ENGINE</text>
+          <text x="335" y="352" text-anchor="middle" fill="#6E9BFF" font-size="12" font-weight="700" id="engineText">анализ заявки…</text>
+        </g>
+
+        <!-- outputs -->
+        <g font-weight="700">
+          <rect x="492" y="108" width="100" height="64" rx="14" fill="#171B24" stroke="#2E3445"/>
+          <text x="542" y="134" text-anchor="middle" fill="#98A0AE" font-size="11">CRM</text>
+          <text x="542" y="156" text-anchor="middle" fill="#EEF0F4" font-size="20" id="crmCount">0</text>
+          <rect x="492" y="328" width="100" height="64" rx="14" fill="#13261F" stroke="#1F5C45"/>
+          <text x="542" y="354" text-anchor="middle" fill="#7FE7C1" font-size="11">СДЕЛКИ</text>
+          <text x="542" y="376" text-anchor="middle" fill="#33D69F" font-size="20" id="dealCount">0</text>
+        </g>
+        <text x="300" y="490" text-anchor="middle" fill="#5E6676" font-size="11">демонстрационная анимация</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span>Яндекс Директ</span><span>Авито</span><span>VK Реклама</span><span>Яндекс Карты</span><span>Квиз-сайты</span><span>CRM</span><span>ИИ-ассистенты</span><span>Сквозная аналитика</span><span>Автоматизация</span><span>Консалтинг</span>
+    <span>Яндекс Директ</span><span>Авито</span><span>VK Реклама</span><span>Яндекс Карты</span><span>Квиз-сайты</span><span>CRM</span><span>ИИ-ассистенты</span><span>Сквозная аналитика</span><span>Автоматизация</span><span>Консалтинг</span>
+  </div></div>
+
+  <!-- KORVILID OS -->
+  <section id="os">
+    <div class="wrap">
+      <span class="kicker reveal">Korvilid OS</span>
+      <h2 class="reveal d1">Вся воронка — на одном экране</h2>
+      <p class="sub reveal d2">Наша платформа собирает заявки из рекламы и с сайта, раскладывает их по этапам сделки, считает цену заявки и подсказывает, что улучшить. Клиент видит то же, что и мы.</p>
+      <div class="appwrap reveal">
+        <div class="app" id="app">
+          <div class="bar"><i></i><i></i><i></i><span class="t">Korvilid OS · Кабинет клиента</span><span class="demo">демо-данные</span></div>
+          <div class="appbody">
+            <div class="side">
+              <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Панель</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Сделки</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/></svg>Реклама</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18"/></svg>Сайты</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 9h10a3 3 0 010 6H7"/></svg>Финансы</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8 9.5 8z"/></svg>ИИ-центр</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>Документы</div>
+            </div>
+            <div class="mainp">
+              <div class="kpis">
+                <div class="kpi"><small>Заявки за месяц</small><b id="k1">0</b><em>▲ растёт</em></div>
+                <div class="kpi"><small>Цена заявки</small><b id="k2">0 ₽</b><em>▼ снижается</em></div>
+                <div class="kpi"><small>Заявка → сделка</small><b id="k3">0%</b><em>по данным CRM</em></div>
+                <div class="kpi"><small>Расход на рекламу</small><b id="k4">0 ₽</b><em>оплачен площадкам</em></div>
+              </div>
+              <div class="chartbox">
+                <div class="h"><b>Заявки по дням</b><div class="legend"><span style="--c:#6E9BFF">Директ</span><span style="--c:#3DE0FF">Авито</span></div></div>
+                <svg id="chart" viewBox="0 0 600 170" preserveAspectRatio="none">
+                  <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E9BFF" stop-opacity=".35"/><stop offset="1" stop-color="#6E9BFF" stop-opacity="0"/></linearGradient></defs>
+                  <g stroke="#232836" stroke-width="1"><line x1="0" y1="40" x2="600" y2="40"/><line x1="0" y1="85" x2="600" y2="85"/><line x1="0" y1="130" x2="600" y2="130"/></g>
+                  <path id="area1" fill="url(#ga)"/>
+                  <path id="line1" fill="none" stroke="#6E9BFF" stroke-width="3" stroke-linejoin="round"/>
+                  <path id="line2" fill="none" stroke="#3DE0FF" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="1 0"/>
+                  <circle id="cdot" r="5" fill="#fff" stroke="#6E9BFF" stroke-width="3"/>
+                </svg>
+              </div>
+              <div class="kanban" id="kanban">
+                <div class="col" data-i="0"><h4>Новая заявка <span>0</span></h4></div>
+                <div class="col" data-i="1"><h4>Квалификация <span>0</span></h4></div>
+                <div class="col" data-i="2"><h4>КП отправлено <span>0</span></h4></div>
+                <div class="col" data-i="3"><h4>Сделка ✓ <span>0</span></h4></div>
+              </div>
+            </div>
+            <div class="ai">
+              <h5><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#171B24"/><polygon points="14,44 28,22 42,24 52,30 40,36 22,46" fill="#C9CED6"/><polygon points="52,30 62,33 50,35" fill="#fff"/><circle cx="40" cy="30" r="3" fill="#2F6BFF"/></svg>Корви · ИИ-ассистент</h5>
+              <div class="msg me">Почему выросла цена заявки в Директе?</div>
+              <div class="msg" id="aimsg"></div>
+              <div class="msg me" id="aiq2" style="opacity:0;transition:opacity .5s">Подготовь отчёт для клиента</div>
+              <div class="msg" id="aimsg2" style="opacity:0;transition:opacity .5s"></div>
+            </div>
+          </div>
+        </div>
+        <div class="toast" id="toast"><b>Новая заявка</b><span id="toastText">Авито · Ремонт кухни</span></div>
+      </div>
+      <p class="demo-note">Интерфейс показан на демонстрационных данных. Первая версия кабинета для клиентов — в разработке.</p>
+    </div>
+  </section>
+
+  <!-- TEAM / HEROES -->
+  <section id="team">
+    <div class="wrap">
+      <span class="kicker reveal">Команда Корвилид</span>
+      <h2 class="reveal d1">Люди + ИИ-помощники</h2>
+      <p class="sub reveal d2">За каждым направлением стоят специалисты, а рутину берут на себя наши ИИ-помощники. Знакомьтесь — герои, которые работают на ваши заявки 24/7.</p>
+      <div class="heroes">
+        <!-- Korvi -->
+        <div class="hcard reveal" style="--c:#6E9BFF">
+          <div class="avatar">
+            <svg viewBox="0 0 160 170" aria-hidden="true">
+              <ellipse cx="80" cy="162" rx="44" ry="6" fill="#000" opacity=".4"/>
+              <polygon points="40,150 60,80 100,78 118,150" fill="#2A2F3C"/>
+              <polygon class="wing" points="60,86 30,130 52,150 74,100" fill="#3A4152"/>
+              <polygon points="60,80 80,30 112,40 118,70 100,78" fill="#C9CED6"/>
+              <polygon points="60,80 80,30 84,74" fill="#8E96A6"/>
+              <polygon points="112,40 148,52 116,62" fill="#FFFFFF"/>
+              <circle cx="101" cy="48" r="9" fill="#2F6BFF" opacity=".25" class="spark"/>
+              <circle class="blinker" cx="101" cy="48" r="5" fill="#2F6BFF"/>
+              <rect x="66" y="104" width="34" height="22" rx="5" fill="#161A23" stroke="#6E9BFF"/>
+              <path d="M71 120 l7-7 6 5 10-10" stroke="#3DE0FF" stroke-width="2.5" fill="none"/>
+              <polygon points="72,150 76,162 68,162" fill="#8E96A6"/><polygon points="94,150 98,162 90,162" fill="#8E96A6"/>
+            </svg>
+          </div>
+          <span class="role">Стратег</span>
+          <h3>Корви</h3>
+          <p>Ворон-основатель. Видит бизнес целиком: откуда приходят клиенты, где теряются заявки и деньги.</p>
+          <div class="power">Суперсила: <b>зоркость</b> — находит утечку бюджета за 48 часов</div>
+        </div>
+        <!-- Iskra -->
+        <div class="hcard reveal d1" style="--c:#FFD54A">
+          <div class="avatar">
+            <svg viewBox="0 0 160 170" aria-hidden="true">
+              <ellipse cx="80" cy="162" rx="40" ry="6" fill="#000" opacity=".4"/>
+              <line x1="80" y1="38" x2="80" y2="18" stroke="#8E96A6" stroke-width="4"/>
+              <polygon class="spark" points="84,2 72,20 80,20 76,32 90,12 82,12" fill="#FFD54A"/>
+              <rect x="40" y="38" width="80" height="62" rx="22" fill="#C9CED6"/>
+              <rect x="50" y="50" width="60" height="36" rx="14" fill="#141821"/>
+              <rect class="blinker" x="60" y="60" width="12" height="14" rx="5" fill="#FFD54A"/>
+              <rect class="blinker" x="88" y="60" width="12" height="14" rx="5" fill="#FFD54A"/>
+              <rect x="50" y="104" width="60" height="46" rx="16" fill="#3A4152"/>
+              <circle cx="80" cy="126" r="11" fill="#FFD54A" opacity=".9"/>
+              <path d="M77 119 l-4 9 h6 l-3 8 9-12 h-6 l3-5z" fill="#141821"/>
+              <rect class="wing" x="26" y="108" width="20" height="10" rx="5" fill="#8E96A6"/>
+              <rect x="114" y="108" width="20" height="10" rx="5" fill="#8E96A6"/>
+              <rect x="58" y="150" width="14" height="10" rx="4" fill="#8E96A6"/><rect x="88" y="150" width="14" height="10" rx="4" fill="#8E96A6"/>
+            </svg>
+          </div>
+          <span class="role">Реклама</span>
+          <h3>Искра</h3>
+          <p>Отвечает за Директ, Авито и VK: собирает ключевые фразы, пишет объявления, следит за ставками.</p>
+          <div class="power">Суперсила: <b>скорость</b> — запуск кампаний за дни, а не недели</div>
+        </div>
+        <!-- Kodeks -->
+        <div class="hcard reveal d2" style="--c:#3DE0FF">
+          <div class="avatar">
+            <svg viewBox="0 0 160 170" aria-hidden="true">
+              <ellipse cx="80" cy="162" rx="42" ry="6" fill="#000" opacity=".4"/>
+              <rect x="36" y="22" width="88" height="70" rx="14" fill="#3A4152"/>
+              <rect x="44" y="30" width="72" height="54" rx="9" fill="#0B0E14" stroke="#3DE0FF" stroke-opacity=".5"/>
+              <text x="80" y="66" text-anchor="middle" font-size="24" font-weight="800" fill="#3DE0FF" font-family="monospace">&lt;/&gt;</text>
+              <rect class="spark" x="58" y="72" width="44" height="3" rx="1.5" fill="#3DE0FF" opacity=".6"/>
+              <rect x="70" y="92" width="20" height="10" fill="#8E96A6"/>
+              <rect x="44" y="102" width="72" height="48" rx="14" fill="#C9CED6"/>
+              <g class="g-cw gear" style="transform-origin:80px 126px"><circle cx="80" cy="126" r="11" fill="none" stroke="#3A4152" stroke-width="5" stroke-dasharray="4 3"/></g>
+              <circle cx="80" cy="126" r="4" fill="#3A4152"/>
+              <rect class="wing" x="22" y="108" width="24" height="10" rx="5" fill="#8E96A6"/>
+              <rect x="114" y="108" width="24" height="10" rx="5" fill="#8E96A6"/>
+              <rect x="56" y="150" width="16" height="10" rx="4" fill="#3A4152"/><rect x="88" y="150" width="16" height="10" rx="4" fill="#3A4152"/>
+            </svg>
+          </div>
+          <span class="role">Разработка</span>
+          <h3>Кодекс</h3>
+          <p>Строит сайты, квизы, CRM и интеграции. Связывает рекламу, телефонию и мессенджеры в одну систему.</p>
+          <div class="power">Суперсила: <b>связность</b> — ни одна заявка не теряется между системами</div>
+        </div>
+        <!-- Mera (owl analyst) -->
+        <div class="hcard reveal d3" style="--c:#33D69F">
+          <div class="avatar">
+            <svg viewBox="0 0 160 170" aria-hidden="true">
+              <ellipse cx="80" cy="162" rx="40" ry="6" fill="#000" opacity=".4"/>
+              <polygon points="44,40 56,22 66,40" fill="#3A4152"/><polygon points="94,40 104,22 116,40" fill="#3A4152"/>
+              <ellipse cx="80" cy="96" rx="44" ry="62" fill="#3A4152"/>
+              <ellipse cx="80" cy="112" rx="28" ry="38" fill="#C9CED6"/>
+              <circle cx="62" cy="64" r="17" fill="#EEF0F4"/><circle cx="98" cy="64" r="17" fill="#EEF0F4"/>
+              <circle class="blinker" cx="62" cy="64" r="8" fill="#141821"/><circle class="blinker" cx="98" cy="64" r="8" fill="#141821"/>
+              <circle cx="65" cy="61" r="2.5" fill="#33D69F"/><circle cx="101" cy="61" r="2.5" fill="#33D69F"/>
+              <rect x="50" y="56" width="24" height="16" rx="8" fill="none" stroke="#33D69F" stroke-width="2"/>
+              <rect x="86" y="56" width="24" height="16" rx="8" fill="none" stroke="#33D69F" stroke-width="2"/>
+              <polygon points="76,76 84,76 80,86" fill="#FFB547"/>
+              <g><rect x="62" y="118" width="7" height="18" rx="2" fill="#33D69F" class="spark"/><rect x="73" y="108" width="7" height="28" rx="2" fill="#33D69F"/><rect x="84" y="98" width="7" height="38" rx="2" fill="#33D69F" class="spark"/></g>
+              <polygon class="wing" points="36,90 26,130 44,128" fill="#2A2F3C"/>
+            </svg>
+          </div>
+          <span class="role">Аналитика</span>
+          <h3>Мера</h3>
+          <p>Считает всё: расход, заявки, цену заявки и сделки. Каждую неделю собирает понятный отчёт.</p>
+          <div class="power">Суперсила: <b>точность</b> — решения на цифрах, а не на ощущениях</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <span class="kicker reveal">Услуги</span>
+      <h2 class="reveal d1">Четыре направления — один механизм</h2>
+      <p class="sub reveal d2">Начинаем с того, что быстрее всего даёт заявки, и подключаем остальное, когда это нужно вашему бизнесу.</p>
+      <div class="svc">
+        <div class="s reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#6E9BFF" stroke-width="2"><path d="M3 11l18-8-8 18-2-8z"/></svg></div><h3>Корвилид Реклама</h3><p>Поток целевых заявок из Яндекс Директа, Авито, VK и Яндекс Карт с понятной ценой каждой заявки.</p><div class="chips"><span>Поиск и РСЯ</span><span>Авито</span><span>VK Реклама</span><span>Карты и отзывы</span></div><span class="big">01</span></div>
+        <div class="s reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#3DE0FF" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div><h3>Корвилид Студия</h3><p>Квиз-сайты, лендинги, корпоративные сайты и магазины, которые превращают посетителей в заявки.</p><div class="chips"><span>Квизы</span><span>Лендинги</span><span>Магазины</span><span>Поддержка</span></div><span class="big">02</span></div>
+        <div class="s reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#33D69F" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div><h3>Корвилид Тех</h3><p>CRM, интеграции, ИИ-ассистенты для первичной обработки заявок и автоматические отчёты.</p><div class="chips"><span>CRM</span><span>Интеграции</span><span>ИИ-боты</span><span>Автоматизация</span></div><span class="big">03</span></div>
+        <div class="s reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB547" stroke-width="2"><path d="M3 20h18M6 16V9M11 16V5M16 16v-4M21 16V8"/></svg></div><h3>Корвилид Консалтинг</h3><p>Аудит маркетинга и продаж, стратегия роста, построение отдела продаж и управленческой отчётности.</p><div class="chips"><span>Аудит</span><span>Стратегия</span><span>Отдел продаж</span><span>Отчётность</span></div><span class="big">04</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRICES -->
+  <section id="prices">
+    <div class="wrap">
+      <span class="kicker reveal">Тарифы</span>
+      <h2 class="reveal d1">Понятные цены без сюрпризов</h2>
+      <p class="sub reveal d2">Оплата наших услуг — отдельно от рекламного бюджета, который вы платите площадкам напрямую. Итоговую стоимость фиксируем в смете после бесплатного аудита.</p>
+      <div class="plans">
+        <div class="plan reveal">
+          <h3>START</h3>
+          <div class="price">от 30 000 ₽<small> / мес</small></div>
+          <div class="setup">Запуск — от 20 000 ₽</div>
+          <div class="who">Малому бизнесу, который начинает с одного канала</div>
+          <ul><li>Один канал: Директ или Авито</li><li>Сбор фраз, объявления, ставки</li><li>Цели в Яндекс Метрике</li><li>Отчёт раз в неделю</li><li>Персональный менеджер</li></ul>
+          <a class="btn ghost" href="#audit" data-plan="START">Начать со START</a>
+        </div>
+        <div class="plan best reveal d1">
+          <span class="badge">Рекомендуем</span>
+          <h3>BUSINESS</h3>
+          <div class="price">от 55 000 ₽<small> / мес</small></div>
+          <div class="setup">Запуск — от 35 000 ₽</div>
+          <div class="who">Компаниям, которым нужен стабильный поток заявок</div>
+          <ul><li>Директ + Авито + Яндекс Карты</li><li>Квиз-сайт под рекламу</li><li>Учёт заявок и их источников</li><li>Цена заявки по каждому каналу</li><li>Созвон и план улучшений каждый месяц</li></ul>
+          <a class="btn" href="#audit" data-plan="BUSINESS">Выбрать BUSINESS</a>
+        </div>
+        <div class="plan reveal d2">
+          <h3>PREMIUM</h3>
+          <div class="price">от 95 000 ₽<small> / мес</small></div>
+          <div class="setup">Запуск — от 60 000 ₽</div>
+          <div class="who">Бизнесу с несколькими направлениями и большим бюджетом</div>
+          <ul><li>Все каналы, включая VK и SEO</li><li>Внедрение CRM и интеграции</li><li>ИИ-ассистент для первичной обработки заявок</li><li>Сквозная аналитика до сделки</li><li>Доступ в кабинет Korvilid OS</li></ul>
+          <a class="btn ghost" href="#audit" data-plan="PREMIUM">Обсудить PREMIUM</a>
+        </div>
+      </div>
+
+      <div class="calc reveal">
+        <div>
+          <h3>Соберите свой набор</h3>
+          <p class="hint">Отметьте, что нужно, — цена пересчитается сразу. Это предварительная оценка, точную смету даём после аудита.</p>
+          <div class="opts" id="opts">
+            <label class="opt" data-m="30000" data-s="20000" data-ch="1"><input type="checkbox"><i class="box"></i><div><b>Яндекс Директ</b><span>поиск, РСЯ, ретаргетинг</span></div></label>
+            <label class="opt" data-m="20000" data-s="10000" data-ch="1"><input type="checkbox"><i class="box"></i><div><b>Авито</b><span>профиль, объявления, продвижение</span></div></label>
+            <label class="opt" data-m="20000" data-s="15000" data-ch="1"><input type="checkbox"><i class="box"></i><div><b>VK Реклама</b><span>кампании и лид-формы</span></div></label>
+            <label class="opt" data-m="10000" data-s="5000" data-ch="1"><input type="checkbox"><i class="box"></i><div><b>Яндекс Карты</b><span>карточка и работа с отзывами</span></div></label>
+            <label class="opt" data-m="35000" data-s="15000" data-ch="1"><input type="checkbox"><i class="box"></i><div><b>SEO</b><span>продвижение в поиске</span></div></label>
+            <label class="opt" data-m="3000" data-s="45000"><input type="checkbox"><i class="box"></i><div><b>Квиз-сайт</b><span>разработка + поддержка</span></div></label>
+            <label class="opt" data-m="5000" data-s="60000"><input type="checkbox"><i class="box"></i><div><b>CRM</b><span>внедрение и интеграции</span></div></label>
+            <label class="opt" data-m="10000" data-s="80000"><input type="checkbox"><i class="box"></i><div><b>ИИ-ассистент</b><span>первичная обработка заявок</span></div></label>
+          </div>
+          <div class="budget">
+            <label><span>Ваш рекламный бюджет в месяц</span><b id="budv">100 000 ₽</b></label>
+            <input type="range" id="budget" min="30000" max="1000000" step="10000" value="100000">
+          </div>
+        </div>
+        <div class="total">
+          <div class="row2"><span>Наши услуги в месяц</span><b id="tm">0 ₽</b></div>
+          <div class="row2"><span>Разово за запуск</span><b class="sm" id="ts">0 ₽</b></div>
+          <div class="disc" id="disc"></div>
+          <div class="bars" id="bars"></div>
+          <div class="row2" style="border:0;padding:0"><span>Рекламный бюджет — вы платите площадкам</span><b class="sm" id="tb">100 000 ₽</b></div>
+          <p class="small">Мы не обещаем гарантированное количество заявок: результат зависит от ниши, сайта и бюджета. Обещаем прозрачный отчёт и цену каждой заявки.</p>
+          <a class="btn" href="#audit" id="calcGo">Зафиксировать в аудите →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section id="how">
+    <div class="wrap">
+      <span class="kicker reveal">Как мы работаем</span>
+      <h2 class="reveal d1">Путь от аудита до роста</h2>
+      <p class="sub reveal d2">Без обещаний «100 заявок в день». Сначала разбираемся в цифрах, потом согласуем план и отвечаем за прозрачный результат.</p>
+      <div class="pipe">
+        <svg id="pipesvg" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+          <path id="pipepath" d="M60 100 C200 20 300 180 375 100 S560 20 625 100 S800 180 940 100" fill="none" stroke="#232836" stroke-width="3"/>
+          <path id="pipefill" d="M60 100 C200 20 300 180 375 100 S560 20 625 100 S800 180 940 100" fill="none" stroke="#2F6BFF" stroke-width="3"/>
+          <circle id="pipedot" r="9" fill="#2F6BFF"/>
+        </svg>
+        <div class="stages">
+          <div class="stage"><span class="n">ШАГ 01</span><h3>Аудит за 48 часов</h3><p>Бесплатно разбираем рекламу, сайт и обработку заявок. Показываем, где теряются деньги.</p></div>
+          <div class="stage"><span class="n">ШАГ 02</span><h3>План и смета</h3><p>Фиксируем объём работ, сроки, стоимость и показатели, по которым оцениваем результат.</p></div>
+          <div class="stage"><span class="n">ШАГ 03</span><h3>Запуск</h3><p>Настраиваем рекламу, цели аналитики, квиз или сайт. Рекламные кабинеты оформляются на вас.</p></div>
+          <div class="stage"><span class="n">ШАГ 04</span><h3>Рост и отчёты</h3><p>Еженедельный отчёт: расход, заявки, цена заявки и что улучшаем дальше.</p></div>
+        </div>
+      </div>
+      <p class="note reveal">Рекламный бюджет вы оплачиваете площадкам напрямую — он не смешивается с оплатой наших услуг.</p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section id="audit">
+    <div class="wrap form-wrap">
+      <div class="reveal">
+        <span class="kicker">Бесплатно</span>
+        <h2>Аудит вашей рекламы за 48 часов</h2>
+        <p class="sub" style="margin-bottom:0">Оставьте заявку — Корви и команда разберут вашу рекламу в Директе и на Авито и созвонятся с вами, чтобы обсудить выводы.</p>
+        <div class="benefits">
+          <div><b>1</b><span>Где реклама тратит бюджет впустую</span></div>
+          <div><b>2</b><span>Работают ли цели и подсчёт заявок</span></div>
+          <div><b>3</b><span>Что мешает посетителям оставлять заявки</span></div>
+          <div><b>4</b><span>Конкретный план исправлений на 30 дней</span></div>
+        </div>
+      </div>
+      <form id="leadForm" class="reveal d1" novalidate>
+        <label>Имя<input name="name" required autocomplete="name" maxlength="80"></label>
+        <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+        <label>Сайт или ссылка на Авито<input name="site" maxlength="200" placeholder="необязательно"></label>
+        <label>Что нужно
+          <select name="service">
+            <option>Аудит рекламы</option><option>Яндекс Директ</option><option>Авито</option><option>Сайт или квиз</option><option>CRM и автоматизация</option><option>Другое</option>
+          </select>
+        </label>
+        <label>Комментарий<textarea name="comment" maxlength="1000" placeholder="Ниша, город, текущий рекламный бюджет — по желанию"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="consent" required><span>Я даю <a href="soglasie.html" target="_blank">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="politika.html" target="_blank">политикой обработки персональных данных</a>.</span></label>
+        <button class="btn" type="submit">Получить аудит →</button>
+        <div id="fmsg" class="fmsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts">
+  <div class="wrap row">
+    <div>© <span id="y"></span> Корвилид. От клика до сделки.<br>ИП [ФИО], ИНН [номер]</div>
+    <div>Телефон: <a href="tel:+70000000000">[+7 000 000-00-00]</a><br>Почта: <a href="mailto:hello@korvilid.ru">hello@korvilid.ru</a></div>
+    <div><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на обработку данных</a></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+const NS = 'http://www.w3.org/2000/svg';
+$('#y').textContent = new Date().getFullYear();
+
+/* ---- background particle network ---- */
+const cv = $('#bgcanvas'), cx = cv.getContext('2d');
+let W, H, pts = [], mouse = {x:-999, y:-999};
+function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight;
+  const n = Math.min(80, Math.floor(W*H/22000));
+  pts = Array.from({length:n}, () => ({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35})); }
+size(); addEventListener('resize', size);
+addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY;
+  const g = $('#glow'); g.style.left = e.clientX+'px'; g.style.top = e.clientY+'px'; });
+function bg(){
+  cx.clearRect(0,0,W,H);
+  for (const p of pts){
+    p.x += p.vx; p.y += p.vy;
+    if (p.x<0||p.x>W) p.vx*=-1; if (p.y<0||p.y>H) p.vy*=-1;
+    const dm = Math.hypot(p.x-mouse.x, p.y-mouse.y);
+    if (dm < 140){ p.x += (p.x-mouse.x)/dm*.6; p.y += (p.y-mouse.y)/dm*.6; }
+  }
+  for (let i=0;i<pts.length;i++){ const a = pts[i];
+    for (let j=i+1;j<pts.length;j++){ const b = pts[j], d = Math.hypot(a.x-b.x, a.y-b.y);
+      if (d<150){ cx.strokeStyle = `rgba(110,155,255,${(1-d/150)*.25})`; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke(); } }
+    cx.fillStyle = 'rgba(201,206,214,.6)'; cx.beginPath(); cx.arc(a.x,a.y,1.6,0,6.3); cx.fill(); }
+  if (!RM) requestAnimationFrame(bg);
+}
+bg();
+
+/* ---- gears in the machine ---- */
+function gearPath(cx0, cy0, r, teeth, depth){
+  let d = ''; const step = Math.PI*2/teeth;
+  for (let i=0;i<teeth;i++){
+    const a = i*step, pts2 = [[a,r],[a+step*.15,r+depth],[a+step*.45,r+depth],[a+step*.6,r],[a+step,r]];
+    pts2.forEach(([ang,rad],k) => { const x = cx0+Math.cos(ang)*rad, y = cy0+Math.sin(ang)*rad; d += (i===0&&k===0?'M':'L')+x.toFixed(1)+' '+y.toFixed(1)+' '; });
+  }
+  return d + 'Z';
+}
+const gearsG = $('#gears');
+[[298,196,22,10,6,'g-cw'],[352,206,15,8,5,'g-ccw'],[300,302,17,9,5,'g-ccw'],[370,298,24,12,6,'g-fast']].forEach(([x,y,r,t,dp,cls]) => {
+  const g = document.createElementNS(NS,'g'); g.setAttribute('class','gear '+cls);
+  const p = document.createElementNS(NS,'path'); p.setAttribute('d', gearPath(x,y,r,t,dp)); p.setAttribute('fill','url(#gearg)'); p.setAttribute('opacity','.85');
+  const c = document.createElementNS(NS,'circle'); c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r', r*.38); c.setAttribute('fill','#12151C');
+  g.append(p,c); gearsG.append(g);
+});
+
+/* ---- lead tokens flying along paths ---- */
+const tokensG = $('#tokens');
+const ins = [['p1','#FFD54A'],['p2','#3DE0FF'],['p3','#6E9BFF'],['p4','#33D69F']];
+let crm = 0, deals = 0;
+const engineMsgs = ['анализ заявки…','квалификация…','в CRM →','ИИ: горячий лид','расчёт цены заявки'];
+function runToken(pathId, color, dur, onEnd){
+  const path = document.getElementById(pathId), L = path.getTotalLength();
+  const c = document.createElementNS(NS,'circle'); c.setAttribute('r', 6); c.setAttribute('fill', color);
+  c.setAttribute('filter',''); tokensG.append(c);
+  const halo = document.createElementNS(NS,'circle'); halo.setAttribute('r', 12); halo.setAttribute('fill', color); halo.setAttribute('opacity', .2); tokensG.append(halo);
+  const t0 = performance.now();
+  (function step(t){ const k = Math.min(1,(t-t0)/dur), e = k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2, pt = path.getPointAtLength(e*L);
+    c.setAttribute('cx',pt.x); c.setAttribute('cy',pt.y); halo.setAttribute('cx',pt.x); halo.setAttribute('cy',pt.y);
+    if (k<1) requestAnimationFrame(step); else { c.remove(); halo.remove(); onEnd && onEnd(); } })(t0);
+}
+let ei = 0;
+function spawn(){
+  const [p, col] = ins[Math.floor(Math.random()*ins.length)];
+  runToken(p, col, 1800, () => {
+    $('#engineText').textContent = engineMsgs[ei++ % engineMsgs.length];
+    runToken('pout', '#6E9BFF', 1100, () => { crm++; $('#crmCount').textContent = crm;
+      if (Math.random() < .35) runToken('pout2', '#33D69F', 1100, () => { deals++; $('#dealCount').textContent = deals; }); });
+  });
+}
+if (!RM){ spawn(); setInterval(spawn, 900); } else { $('#crmCount').textContent = '…'; }
+
+/* ---- reveal on scroll ---- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+document.querySelectorAll('.reveal,.app').forEach(el => io.observe(el));
+
+/* ---- Korvilid OS demo ---- */
+function countTo(el, to, fmt, dur=1600){ const t0 = performance.now();
+  (function s(t){ const k = Math.min(1,(t-t0)/dur), v = to*(1-Math.pow(1-k,3)); el.textContent = fmt(v); if (k<1) requestAnimationFrame(s); })(t0); }
+const nf = v => Math.round(v).toLocaleString('ru-RU');
+let appStarted = false;
+const appIO = new IntersectionObserver(es => { if (es[0].isIntersecting && !appStarted){ appStarted = true; startApp(); } }, {threshold:.25});
+appIO.observe($('#app'));
+
+let d1 = Array.from({length:20}, (_,i) => 18 + i*.9 + Math.sin(i/2)*5 + Math.random()*4);
+let d2 = Array.from({length:20}, (_,i) => 10 + i*.5 + Math.cos(i/3)*4 + Math.random()*3);
+function pathFor(d){ const max = 50, step = 600/(d.length-1);
+  return d.map((v,i) => [i*step, 160 - v/max*140]).map((p,i,a) => {
+    if (!i) return `M${p[0]} ${p[1]}`; const q = a[i-1], mx = (q[0]+p[0])/2; return `C${mx} ${q[1]} ${mx} ${p[1]} ${p[0]} ${p[1]}`; }).join(' '); }
+function drawChart(){
+  const p1 = pathFor(d1); $('#line1').setAttribute('d', p1); $('#area1').setAttribute('d', p1 + ' L600 170 L0 170 Z'); $('#line2').setAttribute('d', pathFor(d2));
+  const last = d1[d1.length-1]; $('#cdot').setAttribute('cx', 600); $('#cdot').setAttribute('cy', 160 - last/50*140);
+}
+function animateLine(){ const l = $('#line1'), L = l.getTotalLength(); l.style.strokeDasharray = L; l.style.strokeDashoffset = L;
+  l.getBoundingClientRect(); l.style.transition = 'stroke-dashoffset 2s ease'; l.style.strokeDashoffset = 0;
+  setTimeout(() => { l.style.transition = ''; l.style.strokeDasharray = 'none'; }, 2100); }
+
+const niches = ['Ремонт кухни','Натяжные потолки','Окна ПВХ','Баня под ключ','Дизайн-проект','Кровля','Шкаф-купе','Ремонт ванной','Тёплый пол','Забор','Фасад','Электромонтаж'];
+const cities = ['Екатеринбург','Казань','Пермь','Тюмень','Челябинск','Самара','Уфа','Новосибирск'];
+const srcs = [['d','Директ'],['a','Авито'],['v','VK'],['k','Карты']];
+const cols = [...document.querySelectorAll('#kanban .col')];
+const rnd = a => a[Math.floor(Math.random()*a.length)];
+const MAXC = innerWidth < 900 ? 3 : 4;
+function card(){ const [k,n] = rnd(srcs), el = document.createElement('div'); el.className = 'lc new';
+  el.innerHTML = `<b>${rnd(niches)}</b><span>${rnd(cities)}</span><br><span class="src ${k}">${n}</span>`; return {el, n}; }
+function counts(){ cols.forEach(c => c.querySelector('h4 span').textContent = c.querySelectorAll('.lc').length); }
+function moveCard(from){
+  const src = cols[from], cardsIn = src.querySelectorAll('.lc'); if (!cardsIn.length) return;
+  const el = cardsIn[cardsIn.length-1], r1 = el.getBoundingClientRect();
+  const dst = cols[from+1]; dst.insertBefore(el, dst.querySelector('.lc'));
+  if (dst.querySelectorAll('.lc').length > MAXC) dst.querySelectorAll('.lc')[MAXC].remove();
+  const r2 = el.getBoundingClientRect(); el.classList.remove('new');
+  el.style.transition = 'none'; el.style.transform = `translate(${r1.left-r2.left}px,${r1.top-r2.top}px)`;
+  el.getBoundingClientRect(); el.style.transition = ''; el.style.transform = '';
+  counts();
+}
+const toast = $('#toast');
+function newLead(){ const {el, n} = card(); cols[0].insertBefore(el, cols[0].querySelector('.lc'));
+  if (cols[0].querySelectorAll('.lc').length > MAXC) moveCard(0);
+  counts(); $('#toastText').textContent = `${n} · ${el.querySelector('b').textContent}`;
+  toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800);
+  d1.push(Math.max(8, Math.min(46, d1[d1.length-1] + (Math.random()-.4)*6))); d1.shift();
+  d2.push(Math.max(5, Math.min(40, d2[d2.length-1] + (Math.random()-.45)*5))); d2.shift(); drawChart();
+}
+function typeText(el, txt, cb){ let i = 0; el.innerHTML = '<span class="caret"></span>';
+  const t = setInterval(() => { i++; el.innerHTML = txt.slice(0,i) + '<span class="caret"></span>'; if (i >= txt.length){ clearInterval(t); el.innerHTML = txt; cb && cb(); } }, 22); }
+function startApp(){
+  countTo($('#k1'), 1284, nf); countTo($('#k2'), 612, v => nf(v)+' ₽'); countTo($('#k3'), 18.4, v => v.toFixed(1).replace('.',',')+'%'); countTo($('#k4'), 786000, v => nf(v)+' ₽');
+  drawChart(); animateLine();
+  for (let i=0;i<3;i++) cols[0].append(card().el); cols[1].append(card().el); cols[1].append(card().el); cols[2].append(card().el); cols[3].append(card().el); counts();
+  if (RM) return;
+  setInterval(newLead, 2600);
+  setInterval(() => { const f = [2,1,0][Math.floor(Math.random()*3)]; moveCard(f); }, 1700);
+  setTimeout(() => typeText($('#aimsg'), 'Ставки конкурентов по фразе «ремонт кухни под ключ» выросли на 24%. Предлагаю перенести 15% бюджета в РСЯ и Авито — там заявка сейчас дешевле. Применить после вашего подтверждения?', () => {
+    setTimeout(() => { $('#aiq2').style.opacity = 1; $('#aimsg2').style.opacity = 1;
+      typeText($('#aimsg2'), 'Готово: отчёт за неделю — расход, заявки, цена заявки и 3 рекомендации. Отправил в кабинет клиента.'); }, 900); }), 900);
+}
+
+/* ---- 3D tilt for hero cards ---- */
+document.querySelectorAll('.hcard').forEach(c => {
+  c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(), x = (e.clientX-r.left)/r.width, y = (e.clientY-r.top)/r.height;
+    c.style.transform = `perspective(900px) rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg)`; c.style.setProperty('--mx', x*100+'%'); c.style.setProperty('--my', y*100+'%'); });
+  c.addEventListener('mouseleave', () => c.style.transform = '');
+});
+
+/* ---- pipeline progress on scroll ---- */
+const pp = $('#pipepath'), pf = $('#pipefill'), pd = $('#pipedot'), PL = pp.getTotalLength(), stages = [...document.querySelectorAll('.stage')];
+pf.style.strokeDasharray = PL;
+function pipe(){ const r = $('.pipe').getBoundingClientRect(), vh = innerHeight;
+  let k = (vh*.85 - r.top) / (r.height + vh*.4); k = Math.max(0, Math.min(1, k));
+  pf.style.strokeDashoffset = PL*(1-k); const pt = pp.getPointAtLength(PL*k); pd.setAttribute('cx', pt.x); pd.setAttribute('cy', pt.y);
+  stages.forEach((s,i) => s.classList.toggle('lit', k >= i/4 + .05)); }
+addEventListener('scroll', pipe, {passive:true}); pipe();
+
+
+/* ---- flying Korvi intro ---- */
+(function intro(){
+  let seen = false; try { seen = sessionStorage.getItem('korviFlew') === '1'; } catch(e){}
+  const logo = document.querySelector('.logo'), fl = $('#flyer');
+  if (RM || seen){ return; }
+  try { sessionStorage.setItem('korviFlew','1'); } catch(e){}
+  setTimeout(() => {
+    fl.style.display = 'block';
+    const lr = logo.querySelector('.raven').getBoundingClientRect();
+    const P0 = {x:-240, y:innerHeight*.62}, P1 = {x:innerWidth*.35, y:innerHeight*.95}, P2 = {x:innerWidth*.75, y:innerHeight*.05}, P3 = {x:lr.left+lr.width/2-110, y:lr.top+lr.height/2-60};
+    const bz = (t,a,b,c,d) => (1-t)**3*a + 3*(1-t)**2*t*b + 3*(1-t)*t*t*c + t**3*d;
+    const T = 2600, t0 = performance.now(); let lastTrail = 0, px = P0.x, py = P0.y;
+    (function f(now){
+      const k = Math.min(1, (now-t0)/T), e = k<.5 ? 4*k*k*k : 1-Math.pow(-2*k+2,3)/2;
+      const x = bz(e,P0.x,P1.x,P2.x,P3.x), y = bz(e,P0.y,P1.y,P2.y,P3.y);
+      const ang = Math.atan2(y-py, x-px)*180/Math.PI, sc = 1.5 - 1.25*e;
+      fl.style.transform = `translate(${x}px,${y}px) rotate(${Math.max(-35,Math.min(35,ang))}deg) scale(${sc})`;
+      if (now - lastTrail > 28 && k < .95){ lastTrail = now; const d = document.createElement('i'); d.className = 'trail';
+        d.style.left = (x+110 - 60*sc)+'px'; d.style.top = (y+60)+'px'; document.body.append(d); setTimeout(() => d.remove(), 800); }
+      px = x; py = y;
+      if (k < 1) requestAnimationFrame(f);
+      else { fl.style.display = 'none'; logo.classList.add('land'); setTimeout(() => logo.classList.remove('land'), 1100); }
+    })(t0);
+  }, 700);
+})();
+
+/* ---- Korvi guide ---- */
+const guide = $('#guide'), bubText = $('#bubText'), bub = $('#bub');
+const tips = {
+  top: 'Привет! Я <b>Корви</b>. Покажу, как мы превращаем клики в сделки.',
+  os: 'Это <b>Korvilid OS</b> — так клиент видит свои заявки и цену каждой из них.',
+  team: 'Знакомьтесь — моя команда. <b>Искра, Кодекс и Мера</b> работают на ваши заявки 24/7.',
+  services: 'Можно начать с одного направления, а остальное подключить позже.',
+  prices: 'Отметьте нужное в калькуляторе — я сразу посчитаю. <b>Рекламный бюджет — отдельно.</b>',
+  how: 'Видите огонёк? Он показывает, на каком шаге пути вы сейчас.',
+  audit: 'Оставьте заявку — разберу вашу рекламу <b>за 48 часов</b>. Бесплатно.'
+};
+setTimeout(() => guide.classList.add('on'), RM ? 0 : 3600);
+let curTip = 'top';
+function setTip(id){ if (id === curTip || !tips[id]) return; curTip = id; bub.classList.add('swap');
+  setTimeout(() => { bubText.innerHTML = tips[id]; bub.classList.remove('swap'); }, 300); }
+const secIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setTip(e.target.id); }), {rootMargin:'-45% 0px -45% 0px'});
+['os','team','services','prices','how','audit'].forEach(id => secIO.observe(document.getElementById(id)));
+addEventListener('scroll', () => { if (scrollY < 200) setTip('top'); }, {passive:true});
+guide.querySelector('.x').addEventListener('click', e => { e.stopPropagation(); guide.classList.add('min'); });
+guide.querySelector('.ava').addEventListener('click', () => { if (guide.classList.contains('min')) guide.classList.remove('min'); else location.hash = '#audit'; });
+
+/* ---- calculator ---- */
+const opts = [...document.querySelectorAll('#opts .opt')], bars = $('#bars');
+for (let i=0;i<24;i++) bars.append(document.createElement('i'));
+const shown = {tm:0, ts:0};
+function tween(id, to){ const el = document.getElementById(id), from = shown[id], t0 = performance.now();
+  (function s(t){ const k = Math.min(1,(t-t0)/600), v = from + (to-from)*(1-Math.pow(1-k,3)); el.textContent = nf(v)+' ₽'; if (k<1) requestAnimationFrame(s); else shown[id] = to; })(t0); }
+function calc(){
+  let m = 0, st = 0, ch = 0;
+  opts.forEach(o => { const on = o.querySelector('input').checked; o.classList.toggle('on', on);
+    if (on){ m += +o.dataset.m; st += +o.dataset.s; if (o.dataset.ch) ch++; } });
+  let disc = 0; if (ch >= 3) disc = .15; else if (ch === 2) disc = .1;
+  const chM = opts.filter(o => o.dataset.ch && o.querySelector('input').checked).reduce((a,o) => a + +o.dataset.m, 0);
+  m = Math.round(m - chM*disc);
+  $('#disc').textContent = disc ? `Скидка ${disc*100}% на ведение рекламы за ${ch} канала${ch>4?'ов':''} уже учтена` : (ch === 1 ? 'Добавьте второй канал — скидка 10% на ведение' : '');
+  tween('tm', m); tween('ts', st);
+  [...bars.children].forEach((b,i) => { const h = m ? Math.min(100, 12 + (m/1500)*(.55+.45*Math.sin(i*.7+ m/9000)) ) : 4; b.style.height = h + '%'; });
+}
+opts.forEach(o => o.querySelector('input').addEventListener('change', calc));
+opts[0].querySelector('input').checked = true; opts[1].querySelector('input').checked = true; calc();
+const bud = $('#budget');
+function budUpd(){ const v = +bud.value; $('#budv').textContent = nf(v)+' ₽'; $('#tb').textContent = nf(v)+' ₽';
+  bud.style.setProperty('--p', ((v-bud.min)/(bud.max-bud.min)*100)+'%'); }
+bud.addEventListener('input', budUpd); budUpd();
+function prefill(text){ const c = document.querySelector('#leadForm textarea'); c.value = text; }
+$('#calcGo').addEventListener('click', () => {
+  const sel = opts.filter(o => o.querySelector('input').checked).map(o => o.querySelector('b').textContent);
+  prefill(`Расчёт с сайта: ${sel.join(', ') || '—'}. Услуги ~${$('#tm').textContent}/мес, запуск ~${$('#ts').textContent}. Рекламный бюджет: ${$('#budv').textContent}/мес.`);
+});
+document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => prefill(`Интересует тариф ${a.dataset.plan}.`)));
+
+/* ---- form ---- */
+const f = $('#leadForm'), m = $('#fmsg');
+f.addEventListener('submit', async e => {
+  e.preventDefault(); m.className = 'fmsg'; m.textContent = '';
+  if (!f.name.value.trim() || f.phone.value.replace(/\D/g,'').length < 10){ m.className = 'fmsg err'; m.textContent = 'Укажите имя и телефон.'; return; }
+  if (!f.consent.checked){ m.className = 'fmsg err'; m.textContent = 'Нужно согласие на обработку персональных данных.'; return; }
+  const btn = f.querySelector('button'); btn.disabled = true; btn.textContent = 'Отправляем…';
+  try { const r = await fetch('send.php', {method:'POST', body:new FormData(f)}); const j = await r.json();
+    if (j.ok){ f.reset(); m.className = 'fmsg ok'; m.textContent = 'Спасибо! Заявка принята — Корви уже передал её команде. Свяжемся в ближайшее рабочее время.'; }
+    else throw new Error(j.error || 'error');
+  } catch(err){ m.className = 'fmsg err'; m.textContent = 'Не получилось отправить. Позвоните или напишите нам на почту.'; }
+  btn.disabled = false; btn.textContent = 'Получить аудит →';
+});
+})();
+</script>
+</body>
+</html>
